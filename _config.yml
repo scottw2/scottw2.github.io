@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Some stuff to do with data, economics, politics and the environment.
 url: https://scottw2.github.io/
 github_username: scottw2
-minimal_mistakes_skin: dark
+minimal_mistakes_skin: "dark"
 search: true
 
 # Build settings
