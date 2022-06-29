@@ -38,10 +38,3 @@ Furthermore, ranking MPs by their number of MP followers can show some interesti
 *Table 2: MPs followed by the most other MPs*
 
 One relationship, which I mentioned earlier and would like to expand on, is that while the Tories do on average have more MP followers than their Labour counterparts, Labour MPs on average have more total followers. This is visualised in Figure 2 (below). This seems to show that although the Conservatives are more linked to one another in terms of following relationships, they actually have a harder time getting follows from the general public compared to Labour. I suspect this is due to Twitter having a relatively left-wing user-base, combined with Labour MPs possibly having a stronger online presence. The distribution of MPs from other parties is also visible in the figure, with most of them clustered in the left hand side of the charts.
-
-<div style="margin-left: -250px;
-margin-right: -250px;"><iframe
-     src="https://scottw2.github.io/UKMPsTwitter/LabourNetwork/" 
-    height = 800px width = 1250px
-      
-></iframe> </div>

@@ -23,4 +23,42 @@ The other main datasets I needed for creating some of the maps were the shapefil
 
 One final dataset is from the House of Commons Library. For middle super output areas, they generally don't have names and are just named based on their local authority district (e.g.Great Yarmouth 1, Great Yarmouth 2), however the HoC Library has devised actual descriptive names for these areas (e.g. Hemsby & Oremsby, Fleggburgh/ Rollesby & Martham), which area a bit nicer for presenting and analysing the data at a msoa level.
 
-##
+## Data Wrangling
+
+
+## Maps
+
+### Chloropleth maps
+
+
+### Grid maps
+
+There are also a couple of functions in the sf package that can be used to divide an area into equal sized grid squares and then summarise the data within each grid square. 
+
+insert code and description of how this was done
+
+This can be used to create quite detailed and cool maps of house prices and house sales. The main differences compared to chloropleth maps are that grid maps don't say anything about population density/property density and because of this there are quite a lot of grid-squares with just a few observations, which may impact the reliability of median prices and could be misleading. At the same time, using equally sized grid-squares does allow for a more granular view of the actual house prices and sales across the country, which can reveal insight which may be hidden by using other map types. e.g. you can see a few grid squares with very highly priced properties but only 1 or 2 sales above Erith in the below London grid map. 
+
+<div style="width:100%;border:none"><iframe
+     src="/assets/widgets/house-prices/london_grid.html"
+     width="100%" height = 500px frameBorder="0"
+ ></iframe>   
+ </div>
+
+
+### Point-grid maps
+
+Additionally, the st_centroid function can be used to find the centre of each grid-square. From this we can create what I've called "point-grid" maps (not sure if there is an actual name for this kind of map, but I have seen some other examples). These maps can use both colour and size scales to show both total sales and median price, which isn't shown in the other maps here. The drawdown of this type of map is that it can become harder to see the individual points in high turnover area e.g. London or Birmingham, due to overlapping points.
+
+<div style="width:100%;border:none"><iframe
+     src="/assets/widgets/house-prices/point_grid.html"
+     width="100%" height = 500px frameBorder="0"
+ ></iframe></div> 
+
+
+ <div style="width:100%;border:none"><iframe
+     src="/assets/widgets/house-prices/log_point_grid.html"
+     width="100%" height = 500px frameBorder="0"
+ ></iframe>   
+ </div>
+

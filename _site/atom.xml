@@ -4,7 +4,7 @@
  <title>Scott's Blog</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-06-24T03:38:01+01:00</updated>
+ <updated>2022-06-30T00:48:00+01:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
@@ -31,7 +31,32 @@
 
 &lt;p&gt;One final dataset is from the House of Commons Library. For middle super output areas, they generally don’t have names and are just named based on their local authority district (e.g.Great Yarmouth 1, Great Yarmouth 2), however the HoC Library has devised actual descriptive names for these areas (e.g. Hemsby &amp;amp; Oremsby, Fleggburgh/ Rollesby &amp;amp; Martham), which area a bit nicer for presenting and analysing the data at a msoa level.&lt;/p&gt;
 
-&lt;p&gt;##&lt;/p&gt;
+&lt;h2 id=&quot;data-wrangling&quot;&gt;Data Wrangling&lt;/h2&gt;
+
+&lt;h2 id=&quot;maps&quot;&gt;Maps&lt;/h2&gt;
+
+&lt;h3 id=&quot;chloropleth-maps&quot;&gt;Chloropleth maps&lt;/h3&gt;
+
+&lt;h3 id=&quot;grid-maps&quot;&gt;Grid maps&lt;/h3&gt;
+
+&lt;p&gt;There are also a couple of functions in the sf package that can be used to divide an area into equal sized grid squares and then summarise the data within each grid square.&lt;/p&gt;
+
+&lt;p&gt;insert code and description of how this was done&lt;/p&gt;
+
+&lt;p&gt;This can be used to create quite detailed and cool maps of house prices and house sales. The main differences compared to chloropleth maps are that grid maps don’t say anything about population density/property density and because of this there are quite a lot of grid-squares with just a few observations, which may impact the reliability of median prices and could be misleading. At the same time, using equally sized grid-squares does allow for a more granular view of the actual house prices and sales across the country, which can reveal insight which may be hidden by using other map types. e.g. you can see a few grid squares with very highly priced properties but only 1 or 2 sales above Erith in the below London grid map.&lt;/p&gt;
+
+&lt;div style=&quot;width:100%;border:none&quot;&gt;&lt;iframe src=&quot;/assets/widgets/house-prices/london_grid.html&quot; width=&quot;100%&quot; height=&quot;500px&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;   
+ &lt;/div&gt;
+
+&lt;h3 id=&quot;point-grid-maps&quot;&gt;Point-grid maps&lt;/h3&gt;
+
+&lt;p&gt;Additionally, the st_centroid function can be used to find the centre of each grid-square. From this we can create what I’ve called “point-grid” maps (not sure if there is an actual name for this kind of map, but I have seen some other examples). These maps can use both colour and size scales to show both total sales and median price, which isn’t shown in the other maps here. The drawdown of this type of map is that it can become harder to see the individual points in high turnover area e.g. London or Birmingham, due to overlapping points.&lt;/p&gt;
+
+&lt;div style=&quot;width:100%;border:none&quot;&gt;&lt;iframe src=&quot;/assets/widgets/house-prices/point_grid.html&quot; width=&quot;100%&quot; height=&quot;500px&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;div style=&quot;width:100%;border:none&quot;&gt;&lt;iframe src=&quot;/assets/widgets/house-prices/log_point_grid.html&quot; width=&quot;100%&quot; height=&quot;500px&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;   
+ &lt;/div&gt;
+
 </content>
  </entry>
  
@@ -68,9 +93,6 @@
 &lt;em&gt;Table 2: MPs followed by the most other MPs&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;One relationship, which I mentioned earlier and would like to expand on, is that while the Tories do on average have more MP followers than their Labour counterparts, Labour MPs on average have more total followers. This is visualised in Figure 2 (below). This seems to show that although the Conservatives are more linked to one another in terms of following relationships, they actually have a harder time getting follows from the general public compared to Labour. I suspect this is due to Twitter having a relatively left-wing user-base, combined with Labour MPs possibly having a stronger online presence. The distribution of MPs from other parties is also visible in the figure, with most of them clustered in the left hand side of the charts.&lt;/p&gt;
-
-&lt;div style=&quot;margin-left: -250px;
-margin-right: -250px;&quot;&gt;&lt;iframe src=&quot;https://scottw2.github.io/UKMPsTwitter/LabourNetwork/&quot; height=&quot;800px&quot; width=&quot;1250px&quot;&gt;&lt;/iframe&gt; &lt;/div&gt;
 </content>
  </entry>
  
