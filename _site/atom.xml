@@ -4,7 +4,7 @@
  <title>Scott's Blog</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-06-30T00:48:00+01:00</updated>
+ <updated>2022-07-01T01:04:47+01:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
@@ -37,13 +37,27 @@
 
 &lt;h3 id=&quot;chloropleth-maps&quot;&gt;Chloropleth maps&lt;/h3&gt;
 
+&lt;p&gt;The below map initially shows median house prices and the number of sales at a Local Authority District Level of granularity. However if you zoom it, it will break the LADs down to MSOAs (essentially one layer below - ignoring wards as they don’t match perfectly). This allows you to get a broader and less crowded view at the national level and still explore regional variations at a high level of granularity.&lt;/p&gt;
+
+&lt;div style=&quot;width:100%;border:none&quot;&gt;&lt;iframe src=&quot;/assets/widgets/house-prices/chloropleth.html&quot; width=&quot;100%&quot; height=&quot;500px&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;   
+ &lt;/div&gt;
+
 &lt;h3 id=&quot;grid-maps&quot;&gt;Grid maps&lt;/h3&gt;
 
 &lt;p&gt;There are also a couple of functions in the sf package that can be used to divide an area into equal sized grid squares and then summarise the data within each grid square.&lt;/p&gt;
 
 &lt;p&gt;insert code and description of how this was done&lt;/p&gt;
 
-&lt;p&gt;This can be used to create quite detailed and cool maps of house prices and house sales. The main differences compared to chloropleth maps are that grid maps don’t say anything about population density/property density and because of this there are quite a lot of grid-squares with just a few observations, which may impact the reliability of median prices and could be misleading. At the same time, using equally sized grid-squares does allow for a more granular view of the actual house prices and sales across the country, which can reveal insight which may be hidden by using other map types. e.g. you can see a few grid squares with very highly priced properties but only 1 or 2 sales above Erith in the below London grid map.&lt;/p&gt;
+&lt;p&gt;This can be used to create quite detailed and cool maps of house prices and house sales. The main differences compared to chloropleth maps are that grid maps don’t say anything about population density/property density and because of this there are quite a lot of grid-squares with just a few observations, which may impact the reliability of median prices and could be misleading. At the same time, using equally sized grid-squares does allow for a more granular view of the actual house prices and sales across the country, which can reveal insight which may be hidden by using other map types. e.g. you can see a few grid squares with very highly priced properties but only 1 or 2 sales above Erith in the London map below.&lt;/p&gt;
+
+&lt;p&gt;Initially, I couldn’t get the grid-squares to be actually square instead of rectangular. But I realised it was basically to do with the coordinate references system and how leaflet interacts with this, so by actually specifying grid squares that were 2/3rd wider than they were tall, the grid-squares appeared square on the output maps.&lt;/p&gt;
+
+&lt;p&gt;Below you can see maps of the UK, coloured firstly by property price and secondly by number of sales.&lt;/p&gt;
+
+&lt;div style=&quot;width:100%;border:none&quot;&gt;&lt;iframe src=&quot;/assets/widgets/house-prices/sales_grid.html&quot; width=&quot;100%&quot; height=&quot;500px&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;   
+ &lt;/div&gt;
+
+&lt;p&gt;I also created a grid map just for London, as London has a lot of property sales and I therefore thought it would be interesting to visualise it individually. I also added a few more colours to the colour scale and legend to capture the very pricy area of the Capital.&lt;/p&gt;
 
 &lt;div style=&quot;width:100%;border:none&quot;&gt;&lt;iframe src=&quot;/assets/widgets/house-prices/london_grid.html&quot; width=&quot;100%&quot; height=&quot;500px&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;   
  &lt;/div&gt;

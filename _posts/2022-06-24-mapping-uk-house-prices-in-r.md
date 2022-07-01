@@ -30,6 +30,13 @@ One final dataset is from the House of Commons Library. For middle super output 
 
 ### Chloropleth maps
 
+The below map initially shows median house prices and the number of sales at a Local Authority District Level of granularity. However if you zoom it, it will break the LADs down to MSOAs (essentially one layer below - ignoring wards as they don't match perfectly). This allows you to get a broader and less crowded view at the national level and still explore regional variations at a high level of granularity.
+
+<div style="width:100%;border:none"><iframe
+     src="/assets/widgets/house-prices/chloropleth.html"
+     width="100%" height = 500px frameBorder="0"
+ ></iframe>   
+ </div>
 
 ### Grid maps
 
@@ -37,7 +44,20 @@ There are also a couple of functions in the sf package that can be used to divid
 
 insert code and description of how this was done
 
-This can be used to create quite detailed and cool maps of house prices and house sales. The main differences compared to chloropleth maps are that grid maps don't say anything about population density/property density and because of this there are quite a lot of grid-squares with just a few observations, which may impact the reliability of median prices and could be misleading. At the same time, using equally sized grid-squares does allow for a more granular view of the actual house prices and sales across the country, which can reveal insight which may be hidden by using other map types. e.g. you can see a few grid squares with very highly priced properties but only 1 or 2 sales above Erith in the below London grid map. 
+This can be used to create quite detailed and cool maps of house prices and house sales. The main differences compared to chloropleth maps are that grid maps don't say anything about population density/property density and because of this there are quite a lot of grid-squares with just a few observations, which may impact the reliability of median prices and could be misleading. At the same time, using equally sized grid-squares does allow for a more granular view of the actual house prices and sales across the country, which can reveal insight which may be hidden by using other map types. e.g. you can see a few grid squares with very highly priced properties but only 1 or 2 sales above Erith in the London map below.
+
+Initially, I couldn't get the grid-squares to be actually square instead of rectangular. But I realised it was basically to do with the coordinate references system and how leaflet interacts with this, so by actually specifying grid squares that were 2/3rd wider than they were tall, the grid-squares appeared square on the output maps.
+
+Below you can see maps of the UK, coloured firstly by property price and secondly by number of sales.
+
+<div style="width:100%;border:none"><iframe
+     src="/assets/widgets/house-prices/sales_grid.html"
+     width="100%" height = 500px frameBorder="0"
+ ></iframe>   
+ </div>
+
+
+I also created a grid map just for London, as London has a lot of property sales and I therefore thought it would be interesting to visualise it individually. I also added a few more colours to the colour scale and legend to capture the very pricy area of the Capital.
 
 <div style="width:100%;border:none"><iframe
      src="/assets/widgets/house-prices/london_grid.html"
