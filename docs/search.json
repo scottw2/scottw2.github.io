@@ -1,0 +1,25 @@
+[
+  
+    {
+
+      "title"    : "Mapping English and Welsh House Prices in R",
+      "description" : "Mapping English and Welsh House Prices in R",
+      "url"      : "/2022/06/24/mapping-uk-house-prices-in-r",
+      "category" : "",
+      "tags"     : "R, Leaflet",
+      "date"     : "2022-06-24 00:00:00 +0100"
+
+    } ,
+  
+    {
+
+      "title"    : "UK MP Twitter Network Analysis",
+      "description" : "UK MP Twitter Network Analysis",
+      "url"      : "/2022/06/18/uk-mp-twitter-network-analysis",
+      "category" : "",
+      "tags"     : "R, Python",
+      "date"     : "2022-06-18 00:00:00 +0100"
+
+    } 
+  
+]

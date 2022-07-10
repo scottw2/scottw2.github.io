@@ -4,7 +4,7 @@
  <title>Scott's Blog</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-07-04T00:52:08+01:00</updated>
+ <updated>2022-07-10T17:02:09+01:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
@@ -19,36 +19,56 @@
    <id>http://localhost:4000/2022/06/24/mapping-uk-house-prices-in-r</id>
    <content type="html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
-&lt;p&gt;House prices are constantly in the news in the UK. However, basically any news story I’ve read about house prices doesn’t really focus on very granular data - usually talking about the country overall, or dividing by region and perhaps doing a deep dive into a specific locality. The focus of the post is to look at house prices at a very local level, which 1) should hopefully show some interesting trends and 2) allows me to learn a bit about making interactive maps in R.&lt;/p&gt;
+&lt;p&gt;House prices are constantly in the news. However, basically any news story I’ve read about house prices doesn’t really focus on very granular data - usually talking about the country overall, or dividing by region and perhaps doing a deep dive into a specific locality. The focus of the post is to look at house prices at a very local level, which 1) should hopefully show some interesting trends and 2) allows me to learn a bit about making interactive maps in R.&lt;/p&gt;
 
 &lt;h2 id=&quot;data&quot;&gt;Data&lt;/h2&gt;
 
-&lt;p&gt;The data on house prices was taken from the April release of the “Prices Paid” dataset, Collected by HM Land Registry. This is a dataset of all registered property sales in UK from 1995 to present. It contains information on the price paid for each property as well as the postcode, address and other info (e.g. property type, new build/old build). Ideally, I wanted to get data for the whole of the UK, but Scotland do not provide this data in an easily accessible manner (as far as I know) and any property data for Northern Ireland apparently requires a paid license to access, so I was left with just English and Welsh data.&lt;/p&gt;
+&lt;p&gt;The data on house prices was taken from the April? or May release of the “Prices Paid” dataset, collected by HM Land Registry. This is a dataset of all registered property sales in England &amp;amp; Wales from 1995 to present. It contains information on the price paid for each property as well as the postcode, address and other info (e.g. property type, new build/old build). Ideally, I wanted to get data for the whole of the UK, but Scotland does not provide this data in an easily accessible manner (as far as I know) and any property data for Northern Ireland apparently requires a paid license to access, so I was left with just English and Welsh data.&lt;/p&gt;
 
-&lt;p&gt;To map this data, I needed to match the postcodes to geographic coordinates and geographic areas. I used the ONS’ National Postcode Lookup to do this. The Postcode Lookup details every postcode in the UK and their associated latitude/longitude as well as the geographic areas that they belong to (e.g. Local Authority District, Middle Super Output Area).&lt;/p&gt;
+&lt;p&gt;To map this data, I needed to match the postcodes to geographic coordinates and geographic areas. I used the ONS National Postcode Lookup to do this. The Postcode Lookup details every postcode in the UK and their associated latitude/longitude as well as the geographic areas that they belong to (e.g. Local Authority District, Middle Super Output Area).&lt;/p&gt;
 
-&lt;p&gt;The other main datasets I needed for creating some of the maps were the shapefiles for the geographic areas I wanted to look at, which were also from the ONS.&lt;/p&gt;
+&lt;p&gt;Some other important datasets I needed for creating some of the maps were the shapefiles for the geographic areas I wanted to look at, which were also from the ONS.&lt;/p&gt;
 
-&lt;p&gt;One final dataset is from the House of Commons Library. For middle super output areas, they generally don’t have names and are just named based on their local authority district (e.g.Great Yarmouth 1, Great Yarmouth 2), however the HoC Library has devised actual descriptive names for these areas (e.g. Hemsby &amp;amp; Oremsby, Fleggburgh/ Rollesby &amp;amp; Martham), which area a bit nicer for presenting and analysing the data at a msoa level.&lt;/p&gt;
+&lt;p&gt;One final dataset is from the House of Commons (HoC) Library. For Middle Super Output Areas (MSOA) - which is an area type I wanted to visualise, they generally don’t have names and are just named based on their local authority district (e.g.Great Yarmouth 1, Great Yarmouth 2), however the HoC Library has devised actual descriptive names for these areas (e.g. Hemsby &amp;amp; Oremsby, Fleggburgh/ Rollesby &amp;amp; Martham), which are a bit nicer for presenting and analysing the data at a MSOA level.&lt;/p&gt;
 
 &lt;h2 id=&quot;general-method&quot;&gt;General Method&lt;/h2&gt;
 
-&lt;p&gt;Due to reporting time lags, it’s generally not best practice to look at data from the last few months, so I considered the period of March 2021-March 2022 for this analysis. This should hopefully reduce the impact of reporting lags, while also providing fairly up to date figures. Because I am drilling down into rather small areas, just using sales from say March 2022 would lead to a very small sample size for a lot of areas, which wouldn’t be very accurate. So I decided to look at the median price over the whole year for each area. I didn’t adjust for property type mix as a lot of house price indexes do, instead opting to look at the unadjusted values.&lt;/p&gt;
+&lt;p&gt;Due to reporting time lags, it’s generally not best practice to look at data from the last few months, so I only looked at data up to March 2022. This should hopefully reduce the impact of reporting lags, while also providing fairly up to date figures. Because I am drilling down into rather small areas, just using sales from say March 2022 would lead to a very small sample size for a lot of areas, which wouldn’t be very accurate. So I decided to look at the median price over the whole year for each area - March 2021 - March 2022. I didn’t adjust for property type mix as a lot of house price indexes do, instead opting to look at the unadjusted values.&lt;/p&gt;
 
-&lt;p&gt;I also decided to bin the price/sale values to use as legends, as I think it makes it easier to interpret the difference in price between areas. The bins I used were generally not equal width, but instead were somewhat similar to log scales, where larger values had larger bins, to reduce the total number of bins, while not crowding out the lower prices areas like a continous legend would.&lt;/p&gt;
+&lt;p&gt;I also decided to bin the price/sale values, as I think it makes it easier to interpret the difference in price between areas. The bins I used were generally not equal width, but instead were somewhat similar to log scales, where larger values had larger bins, to reduce the total number of bins, while not crowding out the lower prices areas like a continuous legend would.&lt;/p&gt;
 
-&lt;h2 id=&quot;maps&quot;&gt;Maps&lt;/h2&gt;
-
-&lt;p&gt;I wanted to make the maps interactive, so I used the leaflet package in R, which is build on top of the leaflet JavaScript library.&lt;/p&gt;
-
-&lt;p&gt;some things about the map design - extra features I used - fullscreen, multiple basemap layers to show legends on top, prevent zoom out, dynamic labels, also search perhaps&lt;/p&gt;
+&lt;p&gt;I wanted to make the maps interactive, so I used the Leaflet package in R, which is build on top of the Leaflet JavaScript library. There are quite a lot of more advanced features and tricks in the Leaflet package that I tried to make the most of, e.g. adding dynamic lables, using multiple basemaps to show location labels on top of the polygon layers and having multiple polygon layers that are only visible at different zoom levels.&lt;/p&gt;
 
 &lt;h3 id=&quot;chloropleth-maps&quot;&gt;Chloropleth maps&lt;/h3&gt;
 
-&lt;p&gt;The below map initially shows median house prices and the number of sales at a Local Authority District Level of granularity. However if you zoom it, it will break the LADs down to MSOAs (essentially one layer below - ignoring wards as they don’t match perfectly). This allows you to get a broader and less crowded view at the national level and still explore regional variations at a high level of granularity.&lt;/p&gt;
+&lt;p&gt;the first maps type I looked at was a chloropleth, shown below. The map initially shows median house prices and the number of sales at a Local Authority District (LAD) Level of granularity. However if you zoom in, it will break the LADs down to MSOAs (essentially one layer below - ignoring wards as they don’t match perfectly). This allows you to get a broader and less crowded view at the national level and still explore regional variations at a high level of granularity.&lt;/p&gt;
 
 &lt;div style=&quot;width:100%;border:none&quot;&gt;&lt;iframe src=&quot;/assets/widgets/house-prices/chloropleth.html&quot; width=&quot;100%&quot; height=&quot;500px&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;   
  &lt;/div&gt;
+
+&lt;details&gt;
+  &lt;summary&gt; Click here for the code that was used to generate this map &lt;/summary&gt;
+
+  &lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;    chloropleth &amp;lt;-  leaflet() %&amp;gt;%  
+        setView(lng = -0.5, lat = 53.25, zoom = 6.00) %&amp;gt;% 
+        addMapPane(&quot;background&quot;, zIndex = 100) %&amp;gt;% 
+        addMapPane(&quot;data&quot;, zIndex = 101) %&amp;gt;% 
+        addMapPane(&quot;labels&quot;, zIndex = 102) %&amp;gt;% 
+        addProviderTiles(providers$CartoDB.PositronNoLabels, 
+                            options = providerTileOptions(pane = &quot;background&quot;, minZoom = 6)) %&amp;gt;% 
+        addPolygons(data = msoa_leaflet_change,fillColor = ~pal(msoa_leaflet_change$price_bins_post), stroke = TRUE, color = &quot;white&quot;,weight = 0.75, fillOpacity = 0.75,
+                    label = labels, group = &quot;x&quot;, options = pathOptions(pane = &quot;data&quot;)) %&amp;gt;% 
+        addPolygons(data = lad_leaflet_change, fillColor = ~pal(lad_leaflet_change$price_bins_post), stroke = TRUE, color = &quot;white&quot;,weight = 0.75, fillOpacity = 0.75,
+                    group = &quot;y&quot;, label = labels_x, options = pathOptions(pane = &quot;data&quot;)) %&amp;gt;% 
+        addProviderTiles(providers$CartoDB.PositronOnlyLabels, 
+                            options = providerTileOptions(pane = &quot;labels&quot;,minZoom = 6)) %&amp;gt;% 
+        groupOptions(&quot;x&quot;, zoomLevels = 11:20) %&amp;gt;% 
+        groupOptions(&quot;y&quot;, zoomLevels = 0:10) %&amp;gt;% 
+        addLegend(&quot;bottomright&quot;, pal = pal, values = c(&quot;0-150k&quot;, &quot;150k-250k&quot;, &quot;250k-350k&quot;, &quot;350k-450k&quot;, &quot;450k-750k&quot;, &quot;750k-1m&quot;, &quot;Above 1m&quot;))
+    saveWidget(chloropleth, &quot;Widgets/chloropleth.html&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/details&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;grid-maps&quot;&gt;Grid maps&lt;/h3&gt;
 
@@ -56,7 +76,7 @@
 
 &lt;p&gt;insert code and description of how this was done&lt;/p&gt;
 
-&lt;p&gt;The grid squares I used are supposedly 25km^2 for the main maps and 0.75km^2 for the London map (see both below). Leaflet uses the “Web Mercator” coordinate referencing system (CRS) (3875) to display maps, which essentially flattens maps to make them look nice for the web. However, it does this at the expense of accurate distances, which get worse the further you move from the equator and the UK is quite far from the ecuator. This makes me question how accurate these grid square sizes are. It would probably be better to use a CRS like the UK National Grid (27700), which does not distort distances like the Web Mercator CRS, but leaflet doesn’t support this, atleast not if you want to use pretty basemaps.&lt;/p&gt;
+&lt;p&gt;The grid squares I used are supposedly 25km^2 for the England and Wales maps and 0.75km^2 for the London map (see both below). Leaflet uses the “Web Mercator” coordinate referencing system (CRS) (3875) to display maps, which essentially flattens maps to make them look nice for the web. However, it does this at the expense of accurate distances, which get worse the further you move from the equator and the UK is quite far from the ecuator. This makes me question how accurate these grid square sizes are. It would probably be better to use a CRS like the UK National Grid (27700), which does not distort distances like the Web Mercator CRS, but leaflet doesn’t support this, atleast not if you want to use pretty basemaps.&lt;/p&gt;
 
 &lt;p&gt;In any case, these grid squares be used to create quite detailed and cool maps of house prices and house sales. The main differences compared to chloropleth maps are that grid maps don’t say anything about population density/property density and because of this there are quite a lot of grid-squares with just a few observations, which may impact the reliability of median prices and could be misleading. At the same time, using equally sized grid-squares does allow for a more granular view of the actual house prices and sales across the country, which can reveal insight which may be hidden by using other map types. e.g. you can see a few grid squares with very highly priced properties but only 1 or 2 sales above Erith in the London map below.&lt;/p&gt;
 
