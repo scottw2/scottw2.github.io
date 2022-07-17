@@ -7,7 +7,7 @@
 }
 
 body {
-	font-family: system-ui, sans-serif;
+	font-family: roboto;
 	-webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 	line-height:1.5;
@@ -44,10 +44,6 @@ pre {
 
 .meta {
 	margin: 2rem 0;
-}
-
-code,pre {
-	background: rgb(236, 237, 238);
 }
 
 code {
@@ -151,10 +147,6 @@ strong, b {
 	padding-left: 1rem;
 	white-space: nowrap;
 	font-variant-numeric: tabular-nums;
-}
-
-.post ul, .project ul, .post ol  {
-	//list-style-position: inside;
 }
 
 main {

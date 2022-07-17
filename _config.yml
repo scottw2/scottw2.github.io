@@ -16,9 +16,15 @@ permalink: pretty
 
 #baseurl: /scottw2.github.io
 baseurl: ""
+
 url: https://scottw.github.io
 
 destination: ./docs
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 highlighter: rouge
 
