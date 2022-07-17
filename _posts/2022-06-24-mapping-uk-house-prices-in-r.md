@@ -15,7 +15,7 @@ House prices are constantly in the news, however, basically all the news stories
 
 ### Data
 
-The data on house prices was taken from the May release of the "Prices Paid" dataset, collected by HM Land Registry. This is a dataset of all registered property sales in England & Wales from 1995 to present. It contains information on the price paid for each property as well as the postcode, address and other info (e.g. property type, new build/old build). Ideally, I wanted to get data for the whole of the UK, but Scotland does not provide this data in an easily accessible manner (as far as I know) and any property data for Northern Ireland apparently requires a paid license to access, so I was left with just English and Welsh data.
+The data on house prices was taken from the May release of the "Prices Paid" dataset, collected by HM Land Registry. This is a dataset of all registered property sales in England & Wales from 1995 to the present day. It contains information on the price paid for each property as well as the postcode, address and other info (e.g. property type, new build/old build). Ideally, I wanted to get data for the whole of the UK, but Scotland does not provide this data in an easily accessible manner (as far as I know) and any property data for Northern Ireland apparently requires a paid license to access, so I was left with just English and Welsh data.
 
 To map this data, I needed to match the postcodes to geographic coordinates and geographic areas. I used the ONS National Postcode Lookup to do this. The Postcode Lookup details every postcode in the UK and their associated latitude/longitude as well as the geographic areas that they belong to (e.g. Local Authority District, Middle Super Output Area).
 
