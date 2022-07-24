@@ -7,7 +7,6 @@ comments: true
 tags: [R, Leaflet]
 ---
 
-
 ### Introduction
 
 House prices are constantly in the news, however, basically all the news stories I've read about this topic don't focus on very granular data - instead talking about the country overall, or dividing prices by region and perhaps doing a deep dive into a specific locality. The focus of the post is to therefore look at house prices nationally - at a very local level. This should 1) hopefully show some interesting trends and 2) allow me to learn a bit about making interactive maps in R.
@@ -112,7 +111,7 @@ Additionally, the ```st_centroid()``` function can be used to find the centre of
 See a point-grid map for the UK below, using a logged size scale.
 
  <div style="width:100%;border:none"><iframe
-     src="/assets/widgets/house-prices/log_point_grid2.html"
+     src="/assets/widgets/house-prices/log_point_grid3.html"
      width="100%" height = 500px frameBorder="0"
  ></iframe>   
  </div>
