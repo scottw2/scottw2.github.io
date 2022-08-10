@@ -37,7 +37,7 @@ To make the maps interactive, I used the Leaflet package in R, which is build on
 The first map type I looked at was a chloropleth, shown below. The map initially shows median house prices and the number of sales at a Local Authority District (LAD) level of granularity. However if you zoom in, it will break the LADs down to MSOAs (essentially one layer below - ignoring wards as they don't match perfectly). This allows you to get a broader and less crowded view at the national level and still explore regional variations at a high level of granularity.
 
 <div style="width:100%;border:none"><iframe
-     src="/assets/widgets/house-prices/chloropleth2.html"
+     src="/assets/widgets/house-prices/chloropleth3.html"
      width="100%" height = 500px frameBorder="0"
  ></iframe>   
  </div>
@@ -47,23 +47,25 @@ The first map type I looked at was a chloropleth, shown below. The map initially
 <details><summary markdown="span"> Click here for the code that was used to generate this map </summary>
 
 ```r
-    chloropleth <-  leaflet() %>%  
+    chloropleth <- leaflet() %>%  
         setView(lng = -0.5, lat = 53.25, zoom = 6.00) %>% 
         addMapPane("background", zIndex = 100) %>% 
         addMapPane("data", zIndex = 101) %>% 
         addMapPane("labels", zIndex = 102) %>% 
         addProviderTiles(providers$CartoDB.PositronNoLabels, 
                             options = providerTileOptions(pane = "background", minZoom = 6)) %>% 
-        addPolygons(data = msoa_leaflet_change,fillColor = ~pal(msoa_leaflet_change$price_bins_post), stroke = TRUE, color = "white",weight = 0.75, fillOpacity = 0.75,
+        addPolygons(data = msoa_leaflet_change,fillColor = ~pal_scico(msoa_leaflet_change$price_bins_post), stroke = TRUE, color = "white",weight = 0.75, fillOpacity = 0.75,
                     label = labels, group = "x", options = pathOptions(pane = "data")) %>% 
-        addPolygons(data = lad_leaflet_change, fillColor = ~pal(lad_leaflet_change$price_bins_post), stroke = TRUE, color = "white",weight = 0.75, fillOpacity = 0.75,
+        addPolygons(data = lad_leaflet_change, fillColor = ~pal_scico(lad_leaflet_change$price_bins_post), stroke = TRUE, color = "white",weight = 0.75, fillOpacity = 0.75,
                     group = "y", label = labels_x, options = pathOptions(pane = "data")) %>% 
         addProviderTiles(providers$CartoDB.PositronOnlyLabels, 
                             options = providerTileOptions(pane = "labels",minZoom = 6)) %>% 
         groupOptions("x", zoomLevels = 11:20) %>% 
         groupOptions("y", zoomLevels = 0:10) %>% 
-        addLegend("bottomright", pal = pal, values = c("0-150k", "150k-250k", "250k-350k", "350k-450k", "450k-750k", "750k-1m", "Above 1m"))
-    saveWidget(chloropleth, "Widgets/chloropleth.html")
+        addLegend(title = "Median Price", "bottomright", pal = pal_scico, values = c("0-150k", "150k-250k", "250k-350k", "350k-450k","450k-550k", "550k-750k", "750k-1m", "Above 1m")) %>% 
+        addFullscreenControl()
+
+    saveWidget(chloropleth, "Widgets/chloropleth3.html")
 ```
 
 </details>
@@ -95,7 +97,7 @@ Below you can see maps of the UK, coloured firstly by property price and secondl
  </div>
 
 
-I also created a grid map just for London, as London has a high population (~8.9 million) and a whole bunch of regional inequalities. I therefore thought it would be interesting to visualise it individually. I also used different price bins to better represent London's property market, which is why the colours are different to the other price maps. 
+I also created a grid map just for London, as London is notorious for it's (regional) inequalities. I therefore thought it would be interesting to visualise it individually. I also used different price bins to better represent London's property market, so the colours are different to the other price maps to avoid confusion. 
 
 <div style="width:100%;border:none"><iframe
      src="/assets/widgets/house-prices/london_grid2.html"
@@ -111,13 +113,7 @@ Additionally, the ```st_centroid()``` function can be used to find the centre of
 See a point-grid map for the UK below, using a logged size scale.
 
  <div style="width:100%;border:none"><iframe
-     src="/assets/widgets/house-prices/log_point_grid3.html"
+     src="/assets/widgets/house-prices/log_point_grid4.html"
      width="100%" height = 500px frameBorder="0"
  ></iframe>   
  </div>
-
-#### Static maps
-
-Finally, I also put together a static map at the MSOA level for my own amusement:
-
-![](/assets/images/house-prices/Total Plot v6-01.png)

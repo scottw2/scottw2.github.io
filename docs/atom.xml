@@ -4,7 +4,7 @@
  <title>Scott's Blog</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-07-17T17:49:08+01:00</updated>
+ <updated>2022-07-31T01:50:03+01:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name></name>
@@ -17,15 +17,79 @@
    <link href="http://localhost:4000/2022/07/16/a-few-charts-on-eu-energy"/>
    <updated>2022-07-16T00:00:00+01:00</updated>
    <id>http://localhost:4000/2022/07/16/a-few-charts-on-eu-energy</id>
-   <content type="html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+   <content type="html">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
-&lt;p&gt;House prices are constantly in the news. However, basically any news story I’ve read about house prices doesn’t really focus on very granular data - usually talking about the country overall, or dividing by region and perhaps doing a deep dive into a specific locality. The focus of the post is to look at house prices at a very local level, which 1) should hopefully show some interesting trends and 2) allows me to learn a bit about making interactive maps in R.&lt;/p&gt;
+&lt;!---
+add in EU27 into each grid - either top right or bottom left. Perhaps edit the grid to add in for each chart, instead of doing in illustrator. so some overall EU comments can be made.
+---&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/a-few-charts-on-eu-energy/DB_plot-01.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;The motivation for this post was to create some minimalist visualisations that tell a bit of a story. I thought energy supplies in the EU would be an interesting topic as I wanted to do something somewhat geographical and topical.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/a-few-charts-on-eu-energy/energy mix fonts 2020-01-01.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;a-note-on-methodology-and-definitions&quot;&gt;A Note on methodology and definitions&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/a-few-charts-on-eu-energy/energy mix fonts-09-01.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;The majority of the data used here is from the EU’s energy balances on Eurostat. While Eurostat’s energy data has good coverage, it isn’t initially intuitive to understand. Eurostat provide a number of measures of energy supply and consumption at different stages of the energy transformation and consumption process (see Figure 1). There are a number of measures of production and primary energy consumption, notably, Total Energy Supply, which measures ………. .Unfortunately, statistics of final energy consumption, (i.e. energy balances after losses from transformation &amp;amp; distribution losses) supplied by Eurostat don’t specific the original source - as they break down energy by it’s final form (e.g. electricity, gas etc…), so for example, you cannot then say what % of energy comes from nuclear sources. Therefore, TES was used to capture energy supply by it’s original source.
+&lt;!---
+insert sankey graph of the EU energy balance flow.
+---&gt;&lt;/p&gt;
+
+&lt;p&gt;The data for gas sources does not come from Eurostat as the Eurostat energy imports data doesn’t properly take into account energy transfers (e.g. when some countries import more than 100% of their supply from Russia and then export some of this to other nations). Instead, this data comes from ACER - The EU Agency for the Cooperation of Energy Regulators, which I believe shows the original source of each EU country’s gas supply (although I cannot find details of the precise methodology used to calculate this).&lt;/p&gt;
+
+&lt;p&gt;The data for wind and solar power plants is from globalenergymonitor’s wind and solar plant databases. These seem to be the most detailed and up-to-date freely available renewable power plant databases.&lt;/p&gt;
+
+&lt;h3 id=&quot;energy-mix&quot;&gt;Energy Mix&lt;/h3&gt;
+
+&lt;p&gt;The first thing we can look at is the energy mix of each nation (i.e. the energy supply broken down by energy source). Figure 2 shows the supply by each source as a % of the total energy supply.&lt;/p&gt;
+
+&lt;p&gt;Most EU countries supply the majority of their energy supply from fossil fuels, but there is still quite a wide variation in energy mixes across the EU. For example, a number of nations are still relatively reliant on coal power (Poland, Bulgaria, Czechia, Germany). Others have over 50% of their energy supply originating from Oil &amp;amp; Petroleum (Estonia, Cyprus, Luxembourg). In the case of Estonia this is due to their domestic shale mining operations. Contrastingly, there are nations that have a large amount of energy from renewables (Sweden, Finland, Latvia). You can also see other nations with a lot of nuclear in their energy mix, especially in Central and Eastern Europe (France, Bulgaria, Slovenia, Slovakia).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/a-few-charts-on-eu-energy/energy mix fonts 2020-01 pink2-01.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Figure 3 shows how each country’s energy mixes have changed over time, between 1990 and 2000. In basically every nation we can see the decline of fossil fuels as renewable adoption has increased. There has also been an increase in energy derived from natural gas in quite a few states, e.g. Spain, Germany, Ireland, Belgium, as it is a less carbon intensive fuel than coal and oil and……&lt;/p&gt;
+
+&lt;!---
+- more on oil transisiotn, why??????
+---&gt;
+
+&lt;p&gt;Lithuania has a very unique graph, with nuclear disappearing entierly from their energy mix in 2009. This was due to the shutdown of the last active reactor at the Ignalina Nuclear powerplant, which was an old soviet plant and had a similar design to the one at Chernobyl. Of particular concern, the plant did not have a containment building to prevent radiation leaks in the event of emergencies, which made it rather dangerous to continue running. As part of Lithuania’s accession to the EU, it was agreed in 1999 that the plant would be wound down because of the risks posed by it.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/a-few-charts-on-eu-energy/energy mix fonts-10-01-01.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;renewables&quot;&gt;Renewables&lt;/h3&gt;
+
+&lt;p&gt;To look in more detail at the rise of renewable energy in the EU, we can focus on the change in % of the energy supply coming from renewables between 1990 and 2020 in Figure 4. In every EU country this has increased, but some much more than others. Sweden currently leads the way, with 52% of their energy supply from renewables, followed by Denmark and Finland. Denmark also have had the largest % change - from 6% to 40%. Additionally, quite a number of EU countries started with only 1, 2 or 3% of their energy from renewables sources, but have grown these to generally the double digits (e.g. Poland, Lithuania and Germany), which is good, but still lags far behind other EU countries.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/a-few-charts-on-eu-energy/ren line04-01.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;From which renewables sources is this energy coming from? Figure 6 below shows this below. This graph is sort of similar in design to Figure 2, but uses both axes to represent the % share, instead of just the x axis.&lt;/p&gt;
+
+&lt;p&gt;Across the whole European Union, solid biofuels are the largest renewable source, followed by wind and then hydropower. The use of biofuels is a somewhat contentious issue as while they are technically renewable, they are often not actually sustainable. MORE ON THIS.&lt;/p&gt;
+
+&lt;p&gt;In this graph we can also see the countries getting their renewable energy from each source. For example, we can see that a lot of countries are dominated by solid biofuels (Poland, Latvia, Finland), wheas others have a more diverse supply (Germany, Italy, Spain, France). It’s also not suprising to see a low % of solar in Nordic countries (Sweden, Finland, Denmark), where they only get about 6 hours of sunlight in the winter, compared to sunnier more solar-panel-friendly Southern and Central European Nations (Spain, Netherlands, Greece, Cyprus).&lt;/p&gt;
+
+&lt;p&gt;Italy has the largest share of geothermal in it’s renewable energy mix, while Ireland has the largest share and majority of it’s renewable energy coming from wind. Cyprus has the highest share of solar, and similarly Slovenia the higest for hydroelectric, Luxembourg for Liquid Biofuels and Germany for Biogas.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/a-few-charts-on-eu-energy/ren tree facet3-01.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Figure x shows the growth of the number of wind and solar power plants in Europe from 2000 to 2020. Note that this data does not include smaller power plants with under 10MWs of capacity for wind and under 20MWs for Solar - which may disproportionately exlude power plants in smaller nations e.g. Cyprus, Malta. In any case, this chart shows the smaller installed capacity of solar compared to wind, and the (difference in) distribution of wind and solar power plants. It also shows that wind power plants generally started operating earlier than solar, probably due to technology differences.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/a-few-charts-on-eu-energy/ren ws map3-01.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;!---
+add in animated or static charts showing wind and solar plants
+---&gt;
+&lt;h3 id=&quot;russian-imports&quot;&gt;Russian Imports&lt;/h3&gt;
+
+&lt;p&gt;The EU’s dependency on Russian energy imports is also interesting to consider as this has been brought into the news again by the Russia-Ukraine conflict, which has led to skyrocketing gas prices and warnings of energy rationing across the continent later this year. Figure 7 shows the % of each country’s gas coming from Russia compared to other sources, and gas as a % of TES.&lt;/p&gt;
+
+&lt;p&gt;Countries like Latvia, Hungary, Slovakia and Austria look to be the most dependent on russian imports as they have a high % of gas coming from Russia and relatively high % of gas in their energy mix. At the other end of the scale, nations including Denmark, Spain, Portugal and France seem relatively insulated from Russia in theory - although they can still be impacted by higher energy prices in the EU energy market from demand outpacing supply in other countries.&lt;/p&gt;
+
+&lt;!---
+research this more.
+https://www.cpb.nl/sites/default/files/omnidownload/CPB-Publication-Analysis-of-international-trade-sanctions-against-Russia.pdf
+https://app.powerbi.com/view?r=eyJrIjoiMjJmYWQ4NjctYWIwNC00NzNjLWI5MmMtODVmOTQ0M2Q5YmI4IiwidCI6ImU2MjZkOTBjLTcwYWUtNGRmYy05NmJhLTAyZjE4Y2MwMDA3ZSIsImMiOjl9
+---&gt;
+
+&lt;p&gt;adjust this graph sadly to only show russia and other sources - as the data is otherwise not accurate -&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/a-few-charts-on-eu-energy/gas_facet1-01.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -43,7 +107,7 @@
 
 &lt;h3 id=&quot;data&quot;&gt;Data&lt;/h3&gt;
 
-&lt;p&gt;The data on house prices was taken from the May release of the “Prices Paid” dataset, collected by HM Land Registry. This is a dataset of all registered property sales in England &amp;amp; Wales from 1995 to present. It contains information on the price paid for each property as well as the postcode, address and other info (e.g. property type, new build/old build). Ideally, I wanted to get data for the whole of the UK, but Scotland does not provide this data in an easily accessible manner (as far as I know) and any property data for Northern Ireland apparently requires a paid license to access, so I was left with just English and Welsh data.&lt;/p&gt;
+&lt;p&gt;The data on house prices was taken from the May release of the “Prices Paid” dataset, collected by HM Land Registry. This is a dataset of all registered property sales in England &amp;amp; Wales from 1995 to the present day. It contains information on the price paid for each property as well as the postcode, address and other info (e.g. property type, new build/old build). Ideally, I wanted to get data for the whole of the UK, but Scotland does not provide this data in an easily accessible manner (as far as I know) and any property data for Northern Ireland apparently requires a paid license to access, so I was left with just English and Welsh data.&lt;/p&gt;
 
 &lt;p&gt;To map this data, I needed to match the postcodes to geographic coordinates and geographic areas. I used the ONS National Postcode Lookup to do this. The Postcode Lookup details every postcode in the UK and their associated latitude/longitude as well as the geographic areas that they belong to (e.g. Local Authority District, Middle Super Output Area).&lt;/p&gt;
 
@@ -120,7 +184,7 @@
 
 &lt;p&gt;See a point-grid map for the UK below, using a logged size scale.&lt;/p&gt;
 
-&lt;div style=&quot;width:100%;border:none&quot;&gt;&lt;iframe src=&quot;/assets/widgets/house-prices/log_point_grid2.html&quot; width=&quot;100%&quot; height=&quot;500px&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;   
+&lt;div style=&quot;width:100%;border:none&quot;&gt;&lt;iframe src=&quot;/assets/widgets/house-prices/log_point_grid3.html&quot; width=&quot;100%&quot; height=&quot;500px&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;   
  &lt;/div&gt;
 
 &lt;h4 id=&quot;static-maps&quot;&gt;Static maps&lt;/h4&gt;
@@ -128,139 +192,6 @@
 &lt;p&gt;Finally, I also put together a static map at the MSOA level for my own amusement:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/house-prices/Total Plot v6-01.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>UK MP Twitter Network Analysis</title>
-   <link href="http://localhost:4000/2022/06/18/uk-mp-twitter-network-analysis"/>
-   <updated>2022-06-18T00:00:00+01:00</updated>
-   <id>http://localhost:4000/2022/06/18/uk-mp-twitter-network-analysis</id>
-   <content type="html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-
-&lt;p&gt;In recent years, Twitter has become increasingly prominent in politics, not least due to ex-US President Donald Trump’s questionable use of the platform. But across the pond in the UK, politicians’ Twitter presences have been gradually growing over the years, as more MPs (and their teams) get online and start tweeting. Nowadays, with the majority of UK MPs on Twitter, there is an opportunity to gain insight into a number of areas, including MPs’ networks, political beliefs and public appeal. This insight can be gleamed from analysing MPs’ behaviour on the social network; from what they tweet, who they retweet, who they follow, who follows them etc…&lt;/p&gt;
-
-&lt;p&gt;The area I would like to focus on in this blog post is the parliamentary twitter network as there is not a particularly large amount of research around this. A few previous reports and articles have shown than UK MPs generally tend to cluster together within their own parties, with regard to following relationships and also re-tweet networks (McLoughlin et al., 2019), (Sleeman, 2015), (Weaver et al., 2018). Although, events like the EU referendum have lead to more cross-party interaction in terms of at least tweeting behaviour (Weaver et al., 2018). However, most of this research is a number of years old and doesn’t really reflect the current parliament since the 2019 election. Moreover, the follower-following relationships of smaller parties (e.g. Lib Dems, SDLP, DUP) have not been looked at individually, as well as the within-party follower-following networks. So, in this post I am going to look at the follower-following relationships between UK MPs, with a focus on smaller parties’ overall networks and also on the within-party networks of the Labour and Conservative parties.&lt;/p&gt;
-
-&lt;h2 id=&quot;data&quot;&gt;Data&lt;/h2&gt;
-
-&lt;p&gt;The data was gathered in February 2021 from Twitter’s API, using the Tweepy package in Python (as the data is from February, it doesn’t take into account any changes since then, e.g. Neale Hanvey &amp;amp; Kenny MacAskill defecting from the SNP to the Alba party). I downloaded a spreadsheet from https://www.politics-social.com/ which contained each MP’s Twitter name, their party and their constituency. I then queried the API using Python to return a list of who each MP followed, along with their bio, follower count, like count, status count and a few other metrics. I ran into a few issues, e.g. some MPs had deleted their twitter accounts or had private profiles so I could not view their following list - so I removed those MPs from the dataset. As Twitter’s free API has limits on how much data you can download in a given period, it took over 10 hours for all the data to be collected. I then did a bit of data manipulation in Python and R to get the data into the correct format for analysis and visualisation. &lt;a href=&quot;https://github.com/scottw2/UKMPsTwitter&quot;&gt;Python and R code available here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;outline-of-mp-follower-following-relationships&quot;&gt;Outline of MP Follower-Following Relationships&lt;/h2&gt;
-
-&lt;p&gt;In Table 1, I have arranged a number of summary statistics for each party. I have used median and Interquartile range (IQR) stats as there are a lot of outliers and the data is not normally distributed - you can see the distribution of the number of MP Followers for all parliamentarians in Figure 1. As previous research has shown, generally MPs’ following-followers relationships tend to mostly be to their own parties. This leads to the average MP followers statistic mostly reflecting the number of MPs on twitter for each party, although this relationship doesn’t really hold for some of the very small parties (see the below table). However, while the Conservatives have on average more MP followers (i.e. followers who are MPs), they actually have less median total followers than most other parties, including Labour and the SNP. The Green Party has the 4th highest average MP followers and by far the most average total followers, but that is obviously due to there being only one (popular) Green MP - Caroline Lucas. The SNP has a modest median total followers relative to the Tories, Labour and the Lib Dems, possibly reflecting the geographic focus of the party. The Lib Dems have quite a high median total followers and low median MP followers. The other minor parties have fairly similar total followers and MP follower counts, apart from Sinn Féin, who have a relatively low average MP followers and high median total followers, and the SDLP, who have very high values for both stats.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/uk-mp-twitter-network-analysis/table1.png&quot; alt=&quot;&quot; /&gt;
-&lt;em&gt;Table 1: Summary of parties’ twitter followings&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Additionally, the Tories and Labour have quite a high variability of total followers, as measured by IQR, compared to other parties. Table 1 also shows the MPs from each party with the highest MP and total followers. For example, looking at Labour, Keir Starmer has the most MP followers, but with just over 1 million total followers, he trails ex-leader Jeremy Corbyn by a wide margin.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/uk-mp-twitter-network-analysis/figure1.png&quot; alt=&quot;&quot; /&gt;
-&lt;em&gt;Figure 1: Distribution of MP Followers by Party&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Furthermore, ranking MPs by their number of MP followers can show some interesting results (see Table 2 below). Firstly, the majority of the MPs most followed by other MPs are Tories, with senior leadership and ex-leadership figures taking the top spots of the ranking. The Speaker, Lindsay Hoyle, however, comes in 3rd, reflecting his apolitical role in parliament. The only other non-Tory MPs in the top 25 are three Labour MPs - Keir Starmer, Ed Miliband and Wes Streeting.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/uk-mp-twitter-network-analysis/table2.png&quot; alt=&quot;&quot; /&gt;
-&lt;em&gt;Table 2: MPs followed by the most other MPs&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;One relationship, which I mentioned earlier and would like to expand on, is that while the Tories do on average have more MP followers than their Labour counterparts, Labour MPs on average have more total followers. This is visualised in Figure 2 (below). This seems to show that although the Conservatives are more linked to one another in terms of following relationships, they actually have a harder time getting follows from the general public compared to Labour. I suspect this is due to Twitter having a relatively left-wing user-base, combined with Labour MPs possibly having a stronger online presence. The distribution of MPs from other parties is also visible in the figure, with most of them clustered in the left hand side of the charts.&lt;/p&gt;
-
-&lt;p&gt;insert images&lt;/p&gt;
-
-&lt;p&gt;A great way to visualise the following-follower relations between MPs is network visualisation. To do this I used a piece of open source software called Gephi (Bastian et al., 2009). In short, networks are made up of nodes and edges (connections) between the nodes. I used an algorithm to create the network visualisations called ForceAtlas2 (Jacomy et al., 2014), which essentially creates a graph where each node is clustered together with other similar nodes (in terms of their connections). In this case, each node represents one MP and each edge shows that one MP follows another MP. The nodes are also coloured based on party affiliation and sized relative to the number of connections each MP has to other MPs (the labels are also thus sized by the same metric). Both follower and following relations are included.&lt;/p&gt;
-
-&lt;p&gt;From running this algorithm, the below visualisation (Figure 3) was produced. As we can see, each of the large parties have their own clusters, but there are some MPs from both the Conservative and Labour who have floated off a bit into the centre of the graph, as they have quite a few connections to MPs from other parties relative to their own parties. Notably, Eleanor Laign, Nadhim Zahawi, Matt Warman, Andrew Rosindell and James Cleverly for the Tories and Darren Jones, Wes Streeting, Luke Pollard, Chris Bryant and Keir Starmer for Labour. The Speaker, Lindsay Hoyle is by no surprise right in the middle of the graph. Generally the minor parties (including the SNP) are quite clustered together, apart from the DUP, but I will elaborate on this further in the next section.&lt;/p&gt;
-
-&lt;p&gt;insert images&lt;/p&gt;
-
-&lt;p&gt;While Figure 3 does visually show how parties are interconnected, I also thought it would be nice to quantify how insular parties and MPs are (e.g. what percentage of MPs followed by each specific MP belong to the same party as that specific MP?). You can see in Table&lt;strong&gt; &lt;/strong&gt;3, that Conservative Party MPs were the most insular on average, followed by Labour and then the SNP and other minor parties. There were also 38 Conservative MPs who only followed other Tories, while there were only 5 Labour MPs who purely followed other Labour MPs. There were no MPs from other parties who only followed MPs from their own party. Additionally, in Figure 4 you can see that while Tory MPs in total had nearly twice the number of following relations to their own party compared to Labour’s own party relations, the Tories had fewer following relations to every other party (except the DUP) than Labour. One possible way to explain the difference in insularity across parties is that it is related to party size; less dominant and smaller parties require more collaboration with other parties to make an impact. The Conservative party, which has been the largest party and continuously in government since 2010, relies less on cross-party relationships compared to the other parties, so is therefore the most insular. You could also consider this from the opposite angle, looking at who each specific MP was followed by or you could look at mutual following-follower relationships.&lt;/p&gt;
-
-&lt;p&gt;insert images&lt;/p&gt;
-
-&lt;h2 id=&quot;how-do-the-minor-parties-fit-into-the-network&quot;&gt;How Do the Minor Parties Fit Into the Network?&lt;/h2&gt;
-
-&lt;p&gt;Although it is fairly easy to see how the Labour and Conservative parties interact with one another, smaller party MPs’ connections are quite hard to distinguish in Figure 3. Thus I have filtered the graph to show only the connections of MPs of each of the smaller parties (visualised below in Figure 5 - click on each graph in Figure 5 for a closer look). In Figure 4, you can also see the number of following relationships from each specific party to each other party (&lt;em&gt;read the graph from the left across and down to find the number of following relationships from the source party (left) to each target party (bottom) and vice-versa for the number of followed relationships&lt;/em&gt;).&lt;/p&gt;
-
-&lt;p&gt;insert images&lt;/p&gt;
-
-&lt;p&gt;Overall there are some interesting observations that generally correspond to each party’s political stance and to the extent they have worked with each of the other parties.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The Alliance Party&lt;/strong&gt; has a fairly even number of links with the Tories and Labour, and a number of links to the Lib Dems and the SNP and some of the other minor parties and NI parties.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The DUP &lt;/strong&gt;mostly has links with the Conservative party, likely because they have similar ideologies and also have worked with the Conservatives previously to prop up Theresa May’s government. They have few links to Labour and the SNP, but a number of links to some of the other NI parties.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The Green Party&lt;/strong&gt;, although having only one MP, have quite a number of links - especially to the Labour party. They also have a number of connections to the SNP, the Lib Dems and other minor parties like the SDLP, but few links to the Tories, relative to the number of connections to other parties and the size of the Tory party.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The Liberal Democrats&lt;/strong&gt; live up to their reputation as the party of the middle ground (at least excluding Brexit), as they are well connected to the two main parties and the SNP. They also have some links to parties like the Greens, SDLP and Alliance.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Plaid Cymru&lt;/strong&gt; are characterised by having denser links to the SNP compared to any other minor party and a roughly similar number of linkages to both the Conservatives and Labour.&lt;/p&gt;
-
-&lt;p&gt;The&lt;strong&gt; SDLP&lt;/strong&gt; have more connections to Labour than the Conservatives and quite a few links to the SNP (more than Alliance, DUP and Sinn Féin, but less than Plaid Cymru and the Lib Dems).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Sinn Féin &lt;/strong&gt;have relatively minimal links to any of the other parties (relative to the number of MPs they have), especially compared to other NI parties like the DUP, Alliance or the SDLP, which is possibly representative of their abstentionist approach to the UK parliament. Although they do have more links to Labour than the Tories.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The SNP&lt;/strong&gt;, being the 3rd largest party in Westminster, have lots of connections to both Labour and the Tories (more to the former) as well as to most of the minor parties. To better see the SNP’s links to other smaller parties, take a look at each party’s own chart in Figure 5 or look at Figure 4.&lt;/p&gt;
-
-&lt;p&gt;insert gallery of minor parties&lt;/p&gt;
-
-&lt;h2 id=&quot;within-party-communities&quot;&gt;Within-Party Communities&lt;/h2&gt;
-
-&lt;p&gt;It is also possible to look at the follower-following relations between MPs of just one party. The networks of Labour and the Conservatives are of course the largest and in my opinion thus the most interesting to consider when looking at within-party relations.&lt;/p&gt;
-
-&lt;p&gt;For these networks I have filtered the edges so that there are only connections between nodes if MPs have a mutual following relationship (i.e. they both follow each other’s accounts). I didn’t do this in the previous graphs as I thought it might remove a lot of detail for parties with few MPs and MPs with few connections, but looking within larger parties, I want to slim down the number of edges and focus on the stronger mutual following relations between MPs.&lt;/p&gt;
-
-&lt;p&gt;The networks are again made using the ForceAtlas2 algorithm, so nodes are situated near other similar nodes in terms their position in the network. I have also divided the network into a number of groups based on a community detection algorithm call the Louvain Method (De Meo et al., 2011). This algorithm divides the network into groups of “modularity classes” that generally have denser connections to nodes within the same class that to nodes within other classes. The algorithm has a parameter called “resolution”. Increasing the value of the resolution divides the network into fewer and larger groups and decreasing the value creates more and smaller groups. There thus seems to be a bit of discretion involved in choosing the resolution. I found that dividing the network into many small groups did not really produce anything that interesting and was quite noisy. Having 2-3 main groups per network seemed to be more revealing in terms of mutual following relationships.&lt;/p&gt;
-
-&lt;p&gt;Looking firstly at Labour&amp;lt;/strong&amp;gt; and employing the Louvain Method, I uncovered three communities within the network - designated by the different colours in Figure 6 (red, yellow and cyan). I’ve also created an interactive version of Figure 6 - https://scottw2.github.io/UKMPsTwitter/LabourNetwork/. For some reason the interactive graphs are upside down compared to the static ones.&lt;/p&gt;
-
-&lt;p&gt;The red community is generally those MPs to the political left of the party, e.g. Jeremy Corbyn, John McDonnell, Zara Sultana, Clive Lewis, Rebecca Long-Bailey. As another example, 33 of the 34 MPs in Labour’s Socialist Campaign Group, a left wing pressure group of MPs, can be found within the red community, with the remaining one in the yellow group.&lt;/p&gt;
-
-&lt;p&gt;The cyan community appears to be characterised by generally being comprised of Labour’s more centrist or soft-left MPs, e.g. Ed Milliband, Keir Starmer, Jess Phillips, Hilary Benn and Margaret Hodge. So it looks like the red and cyan communities can broadly by divided by left-right politics.&lt;/p&gt;
-
-&lt;p&gt;Those within the yellow community are probably MPs that are generally somewhere in the middle of Labour’s political spectrum, as demonstrated by most of the yellow community being in the centre of the network. This community can broadly be categorised by having a more evenly distributed number of links to red and blue community members compared to the balance of links the MPs in those two communities have with MPs in their own community compared to colleagues in the other community.&lt;/p&gt;
-
-&lt;p&gt;insert images&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Moving onto the Conservative network&lt;/strong&gt;, there are again three main modularity classes as shown in Figure 7 (although a few individual MPs actually had their own additional classes), (dark) blue, cyan and orange. The interactive version of Figure 7 is here: https://scottw2.github.io/UKMPsTwitter/ToryNetwork/. The division of this network is a bit more nuanced than that of Labour, as I believe what the groups reveal is only somewhat based on (left-right) politics and partly based on seniority or “who you know”.&lt;/p&gt;
-
-&lt;p&gt;Within the orange group appears to be many of the most prominent Brexiteers, e.g. Michael Gove, Jacob Rees Mogg, Tom Tugendhat, Dominic Raab. However, there are some orange group MPs who were originally backing Remain but ended up endorsing Brexit after the referendum e.g. Chloe Smith, Helen Whatley and Alun Cairns. So there seems to be some additional factors linking this group together.&lt;/p&gt;
-
-&lt;p&gt;The blue community is also quite diverse politically, and similarly to the orange group, features a few big Brexiteers like Andrea Leadsom and Boris Johnson. What is interesting to note is that Johnson appears, not in a central position in the network, but on the left hand fringe, with his allies mostly spread around the top left section of the network. A second factor held in common by both the blue and orange groups is the prevalence of most “one nation” conservatives in those two groups, compared to the cyan group. The blue group is particularly populated by one nation Tories, with senior one nation Tories like Damian Green (Chair of the One Nation Conservative caucus) and Robert Buckland (Vice President of the Tory Reform Group - a one nation promoting pressure group) part of this community, along with a large number of other MPs reportedly following this ideology. Members of the Cornerstone Group, a collection of Tory MPs who espouse “traditional” socially conservative values, are also generally located within the orange and blue communities. Additionally, MPs who were members of the Thatcherite Free Enterprise Group, founded by Liz Truss, are mostly situated in the blue community, but with some spillover to the orange and cyan groups - more so to the former.&lt;/p&gt;
-
-&lt;p&gt;The cyan community appears to be made up of some more senior MPs near the centre of the network, but also the majority of the new MPs who were elected for the first time in the 2019 general election, particularly in the fringe of the cyan network. This implies, to an extent, there is a possible division of seniority between the orange/blue and cyan communities. This may also explain why there are less members of the parliamentary groups mentioned in the previous paragraph within the cyan community - as new MPs may not have had time to integrate themselves into the different groups within the party, or at least haven’t been listed as members online yet.&lt;/p&gt;
-
-&lt;p&gt;Nevertheless, there still appears to be a division of seniority between the orange/blue and cyan groups, which could be down to a number of reasons. Firstly, as there is generally some clustering of the party based on a combination of seniority and ideology, maybe some of the old guard are somewhat suspicious of the new MPs, particularly those elected into traditionally Labour constituencies, and have thus kept their distance. On the other hand, this may just be a division within the Twitterverse, and newer and more senior MPs might just not have connected on Twitter yet. Plus it possibly may be to do with some kind of social media strategy during the general election, where new candidates’ Twitter accounts were set up and made to follow one another, so newer MPs are very interconnected with one another but have relatively fewer connections to many senior MPs.&lt;strong&gt; &lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Overall, I suspect the divisions of the network may be a product of all three reasons and maybe some others I haven’t thought of. This possibly reveals that current Tory MPs are a bit more cliquey and hierarchical compared to the Labour party (at-least on Twitter). Although this difference could also be due to the influx of new Tory MPs and decrease in Labour MPs in 2019. In any case, the current Labour networks appears to be more politically divided between the left and right compared to the Conservative network.&lt;/p&gt;
-
-&lt;p&gt;insert images&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;Overall then, as well as generating some quite nice graphs, considering the Twitter follower-following networks of UK MPs appears to give a number of insights:&lt;/p&gt;
-
-&lt;li&gt;While the Tories have the largest overall MP network, with the most average MP followers, they have fewer total followers than Labour MPs on average, indicating that Labour MPs may be more Twitter savvy and command stronger online presences.&lt;/li&gt;
-&lt;li&gt;Parties also tend to cluster together with regard to MPs&apos; follower-following relationships, and the Conservatives also appear to be the most insular party in terms of whether each party&apos;s MPs follow MPs from their own party or from others.&lt;/li&gt;
-&lt;li&gt;The minor parties&apos; interactions within the network vary quite a lot, likely due to the political beliefs of each party and their affiliations with other parties.&lt;/li&gt;
-&lt;li&gt;Both the Conservative and Labour parties&apos; within-party networks have interesting implications - showing differences due to politics and standing - the former appearing more important for the Labour network and the latter for the Conservatives.&lt;/li&gt;
-
-&lt;p&gt;There are of course some caveats that go along with this kind of analysis, as it firstly only captures a specific point in time. Secondly, MPs’ actions on Twitter may not be carried out by the actual MP, but by their team or by external agencies - so who they interact with and follow on the platform may not actually represent their own choices and viewpoints. There are also probably some differences in how Twitter is used by MPs with regard to how much time they (or their team) spend on the platform and what reason they are using it; for example, some may just use it for PR, others to interact with their constituents and the public, others may have mostly inactive accounts but re-tweet the party leader every once in a while.&lt;/p&gt;
-
-&lt;p&gt;In any case, I would be quite interested to extend this analysis to consider the follower-following relationships between MPs and verified non-MP users as I do already have the raw data for this. Looking at how these networks change over time could also be interesting. I would also think about further analysing the distribution of parliamentary groups within the Conservative network. Additionally, examining MPs’ tweets (e.g. the topics they tweet about, their sentiment and who they retweet and mention) is another project that could be intriguing.&lt;/p&gt;
-
-&lt;h2 id=&quot;citations&quot;&gt;Citations&lt;/h2&gt;
-
-&lt;p&gt;Bastian, M., Heymann, S., &amp;amp; Jacomy, M. (2009). Gephi: An Open Source Software for Exploring and Manipulating Networks. &lt;em&gt;Proceedings of the International AAAI Conference on Web and Social Media&lt;/em&gt;, &lt;em&gt;3&lt;/em&gt;(1), 1. https://ojs.aaai.org/index.php/ICWSM/article/view/13937&lt;/p&gt;
-
-&lt;p&gt;De Meo, P., Ferrara, E., Fiumara, G., &amp;amp; Provetti, A. (2011). Generalized Louvain method for community detection in large networks. &lt;em&gt;11th International Conference on Intelligent Systems Design and Applications&lt;/em&gt;, 88–93. https://doi.org/10.1109/ISDA.2011.6121636.&lt;/p&gt;
-
-&lt;p&gt;Jacomy, M., Venturini, T., Heymann, S., &amp;amp; Bastian, M. (2014). ForceAtlas2, a Continuous Graph Layout Algorithm for Handy Network Visualization Designed for the Gephi Software. &lt;em&gt;PLoS ONE&lt;/em&gt;, &lt;em&gt;9&lt;/em&gt;(6), e98679. https://doi.org/10.1371/journal.pone.0098679&lt;/p&gt;
-
-&lt;p&gt;McLoughlin, L., Ward, S., Gibson, R., &amp;amp; Southern, R. (2020). A tale of three tribes: UK MPs, Twitter and the EU Referendum campaign1. &lt;em&gt;Information Polity&lt;/em&gt;, &lt;em&gt;25&lt;/em&gt;(1), 49–66. https://doi.org/10.3233/ip-190140&lt;/p&gt;
-
-&lt;p&gt;Sleeman, C. (2015, April 24). &lt;em&gt;The Twitter network for UK MPs&lt;/em&gt;. Nesta. https://www.nesta.org.uk/blog/twitter-network-uk-mps/&lt;/p&gt;
-
-&lt;p&gt;Weaver, I. S., Williams, H., Cioroianu, I., Williams, M., Coan, T., &amp;amp; Banducci, S. (2018). Dynamic social media affiliations among UK politicians. &lt;em&gt;Social Networks&lt;/em&gt;, &lt;em&gt;54&lt;/em&gt;, 132–144. https://doi.org/10.1016/j.socnet.2018.01.008&lt;/p&gt;
 </content>
  </entry>
  
