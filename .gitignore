@@ -5,6 +5,8 @@ tmp
 .DS_Store
 .jekyll-cache
 .git
-docs/*
+docs/
 !docs/.gitkeep
 _site/*
+.*-cache
+
