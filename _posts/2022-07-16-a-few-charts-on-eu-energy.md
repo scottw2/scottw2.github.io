@@ -45,38 +45,44 @@ The data for wind and solar power plants is from GlobalEnergyMonitor's wind and 
 
 ### Energy Mix
 
-The first thing we can look at is the energy mix of each nation (i.e. the energy supply broken down by energy source). Figure 1 shows the supply by each source as a % of the total energy supply. 
+The first thing we can look at is the energy mix of each nation (i.e. the energy supply broken down by energy source). Figure 1 shows the supply by each source as a percentage of the total energy supply for EU nations in 2020 (For a definition of the total energy supply see the note on methodology and definitions above).
 
 ![](/assets/images/a-few-charts-on-eu-energy/energy-mix-fonts-2020-flags6-01.png)*Figure 1: Energy Mix in the EU*
 
-Most EU countries supply the majority of their energy supply from fossil fuels, but there is still quite a wide variation in energy mixes across the EU. For example, a number of nations are still relatively reliant on coal power (Poland, Bulgaria, Czechia, Germany). Others have over 50% of their energy supply originating from Oil & Petroleum (Estonia, Cyprus, Luxembourg). In the case of Estonia this is due to their domestic shale mining operations. Contrastingly, there are nations that have a large amount of energy from renewables (Sweden, Finland, Latvia). You can also see other nations with a lot of nuclear in their energy mix, especially in Central and Eastern Europe (France, Bulgaria, Slovenia, Slovakia). 
+For most EU countries, the majority of their energy supply comes from fossil fuels, but there is still quite a wide variation in energy mixes across the EU. For example, a number of nations are still relatively reliant on coal power (Poland, Bulgaria, Czechia, Germany). Others have over 50% of their energy supply originating from Oil & Petroleum (Estonia, Cyprus, Luxembourg). In the case of Estonia this is due to their domestic shale mining operations. Contrastingly, there are nations that source a large amount of energy from renewables (Sweden, Finland, Latvia). You can also see other nations with a lot of nuclear in their energy mixes (France, Bulgaria, Slovenia, Slovakia). 
 
 Figure 2 shows how each country's energy mixes have changed over time, between 1990 and 2000. 
 
 ![](/assets/images/a-few-charts-on-eu-energy/energy-mix-fonts-12-01.png)
 *Figure 2: The EU's Changing Energy Supply*
 
-In basically every nation we can see the decline of fossil fuels as renewable adoption has increased. There has also been an increase in energy derived from natural gas in quite a few states (e.g. Spain, Germany, Ireland, Belgium), as higher gas usage has substituted for lower coal usage as countries have phased out coal power plants. The % of energy from nuclear power has been fairly consistent over time in some nations (e.g. in France, Bulgaria,Hungary). In other countries it has grown (Slovakia and Czechia), while in states like Denmark and Belgium it has shrunk. Lithuania has a very unique graph, with nuclear disappearing entirely from their energy mix in 2009. This was due to the shutdown of the last active reactor at the Ignalina Nuclear powerplant, which was an old soviet plant and had a similar design to the one at Chernobyl. Of particular concern, the plant did not have a containment building to prevent radiation leaks in the event of emergencies, which made it rather dangerous to continue running. As part of Lithuania's accession to the EU, it was agreed in 1999 that the plant would be wound down because of the risks posed by it.
+In basically every nation we can see the decline of fossil fuels as renewable adoption has increased. This is particularly the case with coal, which is being broadly phased out across the bloc. There has however been an increase in energy derived from natural gas in quite a few states (e.g. Spain, Germany, Ireland, Belgium) - partly to substitute for lower coal/oil & petroleum usage.
+
+The percentage of energy from nuclear power has been fairly consistent over time in most nations that utilise nuclear power (e.g. in France, Bulgaria, Hungary). In some other countries nuclear has become more important (Slovakia and Czechia), while in Spain and Belgium the opposite trend can be seen. Lithuania has a very unique graph, with nuclear disappearing entirely from their energy mix in 2009. This was due to the shutdown of the last active reactor at the Ignalina Nuclear powerplant. This was an old soviet plant and had a similar design to the one at Chernobyl. Of particular concern, the plant did not have a containment building to prevent radiation leaks in the event of emergencies, which made it rather dangerous to continue running. As part of Lithuania's accession to the EU, it was agreed in 1999 that the plant would be eventually wound down because of the risks posed by it.
 
 ### Renewables
 
-To look in more detail at the rise of renewable energy in the EU, we can focus on the change in % of the energy supply coming from renewables between 1990 and 2020 in Figure 3 (note that the definition used here differs from the definition the EU uses for setting renewables targets - see methodology note). In every EU country this has increased, but some much more than others. Sweden currently leads the way, with 52% of their energy supply from renewables, followed by Denmark and Finland. Denmark also have had the largest % change - from 6% to 40%. Additionally, quite a number of EU countries started with only 1, 2 or 3% of their energy from renewables sources, but have grown these to generally the double digits (e.g. Poland, Lithuania and Germany), which is good, but still lags far behind the leading nations.
+To look in more detail at the rise of renewable energy in the EU, we can see how the percentage of energy coming from renewable sources between 1990 and 2020 has changed in Figure 3 (note that the definition used here differs from the definition the EU uses for setting renewables targets - see methodology note). 
+
+In every EU country, the percentage of energy sourced from renewables has increased, but some states have performed better than others. Sweden currently leads the way, with 52% of their energy supply from renewables, followed by Denmark and Finland. The largest percentage change was in Denmark - 6% in 1990 to 40% in 2020. Additionally, quite a number of EU countries started with less than 3% of their energy coming from renewables sources, but now generally source more than 10% of their energy from renewables (e.g. Poland, Lithuania and Germany).
 
 ![](/assets/images/a-few-charts-on-eu-energy/ren-line08-01.png)
 *Figure 3: Renewables in the Mix*
 
-From which renewables sources is this energy coming from? Figure 4 below shows this below. This graph is sort of similar in design to Figure 2, but uses both axes to represent the % share, instead of just the x axis. 
+Figure 4 also shows the breakdown of renewables energy by source in each country.
 
 ![](/assets/images/a-few-charts-on-eu-energy/ren-tree-facet7-01.png)
 *Figure 4: Renewable Energy Mix in the EU*
 
-In this graph we can also see the countries getting their renewable energy from each source. For example, we can see that a lot of countries are dominated by solid biofuels (Poland, Latvia, Finland), whereas others have a more diverse supply (Germany, Italy, Spain, France). It's also not surprising to see a low % of solar in Nordic countries (Sweden, Finland), where they only get about 6 hours of sunlight in the winter, compared to sunnier more solar-panel-friendly Southern and Central European Nations (Spain, Netherlands, Greece, Cyprus). 
+ In a lot of countries renewables energy is dominated by solid biofuels (Poland, Latvia, Finland), whereas others have a more diverse supply (Germany, Italy, Spain, France). 
+ 
+ It's also not surprising to see a low % of solar in Nordic countries (e.g. Sweden, Finland), where they only get about 6 hours of sunlight in the winter, compared to sunnier more solar-panel-friendly Southern European Nations (Spain, Greece, Cyprus). 
 
-Italy has the largest share of geothermal in it's renewable energy mix, while Ireland has the largest share and majority of it's renewable energy coming from wind. Cyprus has the highest share of solar, and similarly Slovenia the highest for hydroelectric, Luxembourg for liquid biofuels and Germany for biogas. 
+Italy also has the largest share of geothermal in it's renewable energy mix (in fact Italy's geothermal energy supply is more than all other countries combined), while Ireland has the largest share and majority of it's renewable energy coming from wind. Cyprus has the highest share of solar, and similarly Slovenia has the highest for hydroelectric, Luxembourg for liquid biofuels and Germany for biogas. 
 
 ### Final thoughts
 
-It was interesting to make these charts and investigate the differences in EU countries' energy supplies. However Eurostat really didn't make it easy to understand and analyse the data, especially especially as I don't have a background in energy data - but because of this I also learned a lot about this area which is always nice.
+It was interesting to make these charts and investigate the differences in EU countries' energy supplies. However, Eurostat really didn't make it easy to understand and analyse the data, especially as I don't have a background in energy data - but because of this I also learned a lot about this area which is always nice.
 
 
 <!---
