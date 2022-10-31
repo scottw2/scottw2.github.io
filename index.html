@@ -2,11 +2,33 @@
 layout: default
 ---
 
-<section class="posts">
-<ul>
-{% for post in site.posts %}
-<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m-%d-%Y" }}</time></li>
-{% endfor %}
+<section class="post">
+<ul>   
+    <div class="home-title">
+        <h2>Projects</h2>
+    </div>
+    <div class="home-summary">  
+            <p>Here is a selection of projects I have worked on, some with lots of words and others with not so many words.</p>
+    </div>
+    <div class="grid">
+        {% for post in site.posts %}
+        <a class="thumb" href="{{ post.url }}">
+            <div class="post">
+                <div class="post-image">
+                    <img src="{{ post.image }}" />
+                </div>
+                <div class="post-date">
+                    {{ post.date | date: "%B %Y" }}
+                </div>
+                <h1 class="post-title">
+                    {{ post.title }}
+                </h1>
+                <div class="post-summary">
+                    {{ post.summary }}
+                </div>
+            </div>
+        </a> 
+        {% endfor %}
+
 </ul>
 </section>
-

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-2
 title: UK MP Twitter Network Analysis
 description: UK MP Twitter Network Analysis
 summary: UK MP Twitter Network Analysis

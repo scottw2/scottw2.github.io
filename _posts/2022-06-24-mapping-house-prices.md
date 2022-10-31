@@ -1,13 +1,14 @@
 ---
-layout: post
+layout: post-2
 title: Mapping English and Welsh House Prices
 description: Mapping English and Welsh House Prices
-summary: Mapping English and Welsh House Prices
+summary: Creating granular interactive maps using leaflet.
 comments: true
 tags: [R, Leaflet]
+image: /assets/images/house-prices/post_image.png
 ---
 
-### Introduction
+
 
 House prices are constantly in the news, however, basically all the news stories I've read about this topic don't focus on very granular data - instead talking about the country overall, or dividing prices by region and perhaps doing a deep dive into a specific locality. The focus of the post is to therefore look at house prices nationally - at a very local level. This should 1) hopefully show some interesting trends and 2) allow me to learn a bit about making interactive maps in R.
 

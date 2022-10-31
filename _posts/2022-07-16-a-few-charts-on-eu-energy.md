@@ -1,14 +1,13 @@
 ---
-layout: post
+layout: post-2
 title: A Few Charts on EU Energy
 description: A Few Charts on EU Energy
-summary: A Few Charts on EU Energy
+summary: Visualising energy sources of European Union countries.
 comments: true
 tags: [R]
 published: true
+image: /assets/images/a-few-charts-on-eu-energy/post_image.png
 ---
-
-### Introduction
 
 <!---
 add in EU27 into each grid - either top right or bottom left. Perhaps edit the grid to add in for each chart, instead of doing in illustrator. so some overall EU comments can be made.
@@ -29,7 +28,7 @@ Ideally though I would want to use statistics of final energy consumption (i.e. 
 
 Additionally, secondary energy products (e.g. electricity and heat), can sometimes have negative Total Energy Supplies for countries. This is because only trade + stock changes are recorded for secondary products as they are produced from primary energy sources (e.g. coal, renewables) during the energy transformation process. This is problematic as 1) the negative values generally indicate a net export of a secondary product and 2) it ruins the visualisations. In an ideal world we could account for these negative values in terms of the primary energy products that are used in producing the secondary products, but it doesn't seem possible to do that with the available data. That leaves us with two approaches to dealing with this: to either exclude secondary products entirely or to just exclude them when they are negative. I decided to go with the second approach as otherwise a sizeable chunk of the energy supply of some nations would be missing. The downside to doing this though is that for nations with negative values there is now technically a small discrepancy as there is energy being produced but not accounted for - however this has only a minimal impact on the actual visualisations here (where there are negative values they are generally below 1% of the Total Energy Supply). This appears to be a similar approach to figure 6 [here](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Energy_statistics_-_an_overview).
 
-Also note that the figures for renewables here use a slightly different definition than the figures that the EU base their renewables targets on. For their targets they look at "Gross Final Consumption of Energy" - which is final energy consumption (energy used in industry, transport, households... ) including electricity and heat losses from distribution and transmission, but excluding energy consumption and losses from transformation. It is also a definition that doesn't appear in the EU's energy balance data, which is a bit annoying. Additionally, some biofuels are not included if they don't meet certain sustainability criteria, wind and hydro power have to apparently be normalised and there are some other technical differences from other metrics. The exact differences of these details are not particularly clear e.g. it's not very clear what biofuels are included and how wind and hydro are normalised. Finally, the figures given for this metric are only the % share of renewables in the energy mix and don't break this down by the type of renewable energy (e.g. wind, solar). So because of this and to keep the analysis consistent with the rests of the data presented here, I have opted to look at renewables in the Total Energy Supply. See [this page](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Calculation_methodologies_for_the_share_of_renewables_in_energy_consumption#Definition_of_the_primary_energy_content_of_fuels) for more details on the differences between renewable energy definitions.
+Also note that the figures for renewables here use a slightly different definition than the figures that the EU base their renewable energy targets on. For their targets they look at "Gross Final Consumption of Energy" - which is final energy consumption (energy used in industry, transport, households... ) including electricity and heat losses from distribution and transmission, but excluding energy consumption and losses from transformation. It is also a definition that doesn't appear in the EU's energy balance data, which is a bit annoying. Additionally, some biofuels are not included if they don't meet certain sustainability criteria, wind and hydro power have to apparently be normalised and there are some other technical differences from other metrics. The exact differences of these details are not particularly clear e.g. it's not very clear what biofuels are included and how wind and hydro are normalised. Finally, the figures given for this metric are only the % share of renewables in the energy mix and don't break this down by the type of renewable energy (e.g. wind, solar). So because of this and to keep the analysis consistent with the rests of the data presented here, I have opted to look at renewables in the Total Energy Supply. See [this page](https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Calculation_methodologies_for_the_share_of_renewables_in_energy_consumption#Definition_of_the_primary_energy_content_of_fuels) for more details on the differences between renewable energy definitions.
 
 <!---
 The data for gas sources does not come from Eurostat as the Eurostat energy imports data doesn't properly take into account energy transfers (e.g. when some countries import more than 100% of their supply from Russia and then export some of this to other nations). Instead, this data comes from ACER - The EU Agency for the Cooperation of Energy Regulators, which I believe shows the original source of each EU country's gas supply (although I cannot find details of the precise methodology used to calculate this).
@@ -47,36 +46,36 @@ The data for wind and solar power plants is from GlobalEnergyMonitor's wind and 
 
 The first thing we can look at is the energy mix of each nation (i.e. the energy supply broken down by energy source). Figure 1 shows the supply by each source as a percentage of the total energy supply for EU nations in 2020 (For a definition of the total energy supply see the note on methodology and definitions above).
 
-![](/assets/images/a-few-charts-on-eu-energy/energy-mix-fonts-2020-flags6-01.png)*Figure 1: Energy Mix in the EU*
+
+![](/assets/images/a-few-charts-on-eu-energy/energy-mix-2020.png)*Figure 1: Energy Mix in the EU*
 
 For most EU countries, the majority of their energy supply comes from fossil fuels, but there is still quite a wide variation in energy mixes across the EU. For example, a number of nations are still relatively reliant on coal power (Poland, Bulgaria, Czechia, Germany). Others have over 50% of their energy supply originating from Oil & Petroleum (Estonia, Cyprus, Luxembourg). In the case of Estonia this is due to their domestic shale mining operations. Contrastingly, there are nations that source a large amount of energy from renewables (Sweden, Finland, Latvia). You can also see other nations with a lot of nuclear in their energy mixes (France, Bulgaria, Slovenia, Slovakia). 
 
 Figure 2 shows how each country's energy mixes have changed over time, between 1990 and 2000. 
 
-![](/assets/images/a-few-charts-on-eu-energy/energy-mix-fonts-12-01.png)
-*Figure 2: The EU's Changing Energy Supply*
+![](/assets/images/a-few-charts-on-eu-energy/energy-mix.png)*Figure 2: The EU's Changing Energy Supply*
 
 In basically every nation we can see the decline of fossil fuels as renewable adoption has increased. This is particularly the case with coal, which is being broadly phased out across the bloc. There has however been an increase in energy derived from natural gas in quite a few states (e.g. Spain, Germany, Ireland, Belgium) - partly to substitute for lower coal/oil & petroleum usage.
 
-The percentage of energy from nuclear power has been fairly consistent over time in most nations that utilise nuclear power (e.g. in France, Bulgaria, Hungary). In some other countries nuclear has become more important (Slovakia and Czechia), while in Spain and Belgium the opposite trend can be seen. Lithuania has a very unique graph, with nuclear disappearing entirely from their energy mix in 2009. This was due to the shutdown of the last active reactor at the Ignalina Nuclear powerplant. This was an old soviet plant and had a similar design to the one at Chernobyl. Of particular concern, the plant did not have a containment building to prevent radiation leaks in the event of emergencies, which made it rather dangerous to continue running. As part of Lithuania's accession to the EU, it was agreed in 1999 that the plant would be eventually wound down because of the risks posed by it.
+The percentage of energy from nuclear power has been fairly consistent over time in most nations that utilise nuclear power (e.g. in France, Bulgaria, Hungary). In some other countries nuclear has become more important (Slovakia and Czechia), while in Spain and Belgium the opposite trend can be seen. Lithuania has a very unique graph, with nuclear disappearing entirely from their energy mix in 2009. This was due to the shutdown of the last active reactor at the Ignalina Nuclear powerplant - an old soviet plant and had a similar design to the one at Chernobyl. Of particular concern, the plant did not have a containment building to prevent radiation leaks in the event of emergencies, which made it rather dangerous to continue running. As part of Lithuania's accession to the EU, it was agreed in 1999 that the plant would be eventually wound down because of the risks posed by it.
 
 ### Renewables
 
-To look in more detail at the rise of renewable energy in the EU, we can see how the percentage of energy coming from renewable sources between 1990 and 2020 has changed in Figure 3 (note that the definition used here differs from the definition the EU uses for setting renewables targets - see methodology note). 
+To look in more detail at the rise of renewable energy in the EU, we can see how the percentage of energy coming from renewable sources has changed between 1990 and 2020 in Figure 3 (note that the definition used here differs from the definition the EU uses for setting renewables targets and includes some not particularly sustainable (but technically renewable) biofuels - see methodology note). 
 
-In every EU country, the percentage of energy sourced from renewables has increased, but some states have performed better than others. Sweden currently leads the way, with 52% of their energy supply from renewables, followed by Denmark and Finland. The largest percentage change was in Denmark - 6% in 1990 to 40% in 2020. Additionally, quite a number of EU countries started with less than 3% of their energy coming from renewables sources, but now generally source more than 10% of their energy from renewables (e.g. Poland, Lithuania and Germany).
+In every EU country, the percentage of energy sourced from renewables has increased, but some states have performed better than others. Sweden currently leads the way, with 52% of their energy supply from renewables, followed by Denmark and Finland. The largest improvement was in Denmark - 6% in 1990 to 40% in 2020. Additionally, quite a number of EU countries started with less than 3% of their energy coming from renewables sources, but now generally source more than 10% of their energy from renewables (e.g. Poland, Lithuania and Germany).
 
-![](/assets/images/a-few-charts-on-eu-energy/ren-line08-01.png)
+![](/assets/images/a-few-charts-on-eu-energy/ren-line.png)
 *Figure 3: Renewables in the Mix*
 
 Figure 4 also shows the breakdown of renewables energy by source in each country.
 
-![](/assets/images/a-few-charts-on-eu-energy/ren-tree-facet7-01.png)
+![](/assets/images/a-few-charts-on-eu-energy/ren-tree.png)
 *Figure 4: Renewable Energy Mix in the EU*
 
- In a lot of countries renewables energy is dominated by solid biofuels (Poland, Latvia, Finland), whereas others have a more diverse supply (Germany, Italy, Spain, France). 
+ In a lot of nations renewable energy is dominated by solid biofuels (Poland, Latvia, Finland), whereas others have a more diverse supply (Germany, Italy, Spain, France). 
  
- It's also not surprising to see a low % of solar in Nordic countries (e.g. Sweden, Finland), where they only get about 6 hours of sunlight in the winter, compared to sunnier more solar-panel-friendly Southern European Nations (Spain, Greece, Cyprus). 
+ It's also not surprising to see a low % of solar in Nordic countries (e.g. Sweden, Finland), where they only get about 6 hours of sunlight in the winter, compared to more solar-panel-friendly Southern European Nations (Spain, Greece, Cyprus). 
 
 Italy also has the largest share of geothermal in it's renewable energy mix (in fact Italy's geothermal energy supply is more than all other countries combined), while Ireland has the largest share and majority of it's renewable energy coming from wind. Cyprus has the highest share of solar, and similarly Slovenia has the highest for hydroelectric, Luxembourg for liquid biofuels and Germany for biogas. 
 

@@ -1,3 +1,9 @@
+// fixes scrollbar alignment issue
+html {
+	width: 100vw;
+}
+
+
 *,:after,:before {
 	box-sizing:border-box;
 	background-color:inherit;
@@ -7,18 +13,25 @@
 }
 
 body {
-	font-family: 'Merriweather', serif;
+	font-family: 'Roboto', sans-serif;
 	-webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-	line-height:1.5;
+	line-height:1.6rem;
 	font-size: 1rem;
 	color: rgb(22, 23, 26);
+	text-decoration: none;
+	max-width: 100%;
+    overflow-x: hidden;
 }
+
+/// navigation 
+
+
 
 nav {ul {
 	list-style: none !important;
 	padding: 0.5rem;
-	text-align: left;
+	text-align: center;
 
 	li {
 		display: inline;
@@ -29,16 +42,20 @@ a {
 }
 }
 
+
 a {
     color: #000;
     text-decoration-skip-ink: auto;
     text-decoration: underline;
 }
 
+
+
 pre {
 	margin: .5rem 0;
 	padding: .5rem;
 }
+
 
 .post p {
 	margin: .5rem 0;
@@ -50,6 +67,23 @@ pre {
 
 .post h2:first-child, .project h2:first-child, .photo h2:first-child {
 	margin-top: 0;
+}
+
+
+.post-2 {
+	max-width: 55rem;
+	margin: auto
+}
+
+.post-2 p {
+	margin: .5rem 0;
+}
+
+.post-2 h1, .post-2 h3, .post-2 h4 {
+	margin: 1rem 0;
+}
+
+.post-2 h2 {margin: 0 0 2.5rem;
 }
 
 .meta {
@@ -74,10 +108,13 @@ img {
 }
 
 hr {
+	border: 0;
+	height: 2px;
+	width: 100px;
+	margin-left: 0;
 	background: #000;
-    height: 1px;
-    border: 0;
-}
+  }
+  
 
 header {
 	flex-basis:1rem;
@@ -85,7 +122,7 @@ header {
 	position:relative;
 	margin: 0 auto;
 	padding: 1rem;
-    max-width: 60rem; 
+    max-width: 75rem; 
 }
 
 header a {
@@ -102,6 +139,11 @@ header a.active {
 	font-weight: 700;
 }
 
+header a:hover {
+	text-decoration: underline;
+	color: #000;
+}
+
 header,section {
 	padding:1rem;
 }
@@ -112,11 +154,37 @@ blockquote {
     padding-left: 1rem;
 }
 
-h1,h2,h3,h4,h5 {
+h1,h2 {
+	font-family: 'Merriweather', serif;
+	-webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 	line-height: 1;
 	margin: 1rem 0;
 	font-weight: 700;
+	text-align: center;
 }
+
+h3 {
+	font-family: 'Roboto', sans-serif;
+	-webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+	line-height: 1;
+	margin: 1rem 0;
+	font-weight: 700;
+	text-align: left;
+	font-size: 1.25rem;
+}
+
+h4,h5 {
+	font-family: 'Roboto', sans-serif;
+	-webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+	line-height: 1;
+	margin: 1rem 0;
+	font-weight: 500;
+	text-align: left;
+}
+
 
 section h1:first-child {
 	margin-top: 0;
@@ -138,7 +206,178 @@ strong, b {
 	margin-bottom: 0.5rem;
 }
 
-.posts ul,header ul {
+main {
+	display:flex;
+	flex-wrap:wrap;
+	max-width:75rem;
+	margin:2rem auto;
+	padding:1rem;
+}
+
+
+
+//images
+
+.image-small {
+	max-width: 75%;
+	display: block;
+    margin: 0 auto;
+}
+
+// need to make this adjust so that is shows properly on mobile I suspect
+.image-large {
+	max-width: 125%;
+	display: block;
+    margin: 0 auto;
+}
+
+
+
+// not sure if this is needed anymore?
+@media screen and (max-width: 45rem ) {
+.photos ul {
+	margin-top: 0.5rem;
+}
+}
+
+
+section {
+	flex-basis:0;
+	flex-grow:999;
+	min-width:70%;
+	display:flex;
+	flex-direction:column;
+	
+}
+
+figcaption {
+    font-size: smaller;
+}
+
+// home page/projects page 
+
+.home-title {
+	margin-bottom: 0rem;
+	margin-top: 0rem;
+	text-align: center;
+}
+
+.home-summary {
+	margin-bottom: 2.5rem;
+	margin-top: 0rem;
+	text-align: center;
+}
+
+
+.grid {            
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+	align-content: space-between;
+  }
+  
+  
+  @media screen and (min-width: 1277px) {
+	.grid {
+	  justify-content: flex-start;
+	  align-content: flex-start;
+	}
+  }
+  
+  a.thumb {        
+	margin-bottom: 2.5rem;
+	text-decoration: none;
+	opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+  }
+  
+  @media screen and (min-width: 320px) {
+	a.thumb {
+	  width: 48%;
+	  text-decoration: none;
+	  opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	}
+  }
+  
+  @media screen and (min-width: 768px) {
+	a.thumb {
+	  width: 32%;
+	  text-decoration: none;
+	  opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	}
+  }
+  
+  @media screen and (min-width: 1200px) {
+	a.thumb {
+	  flex-grow: 1;
+	  margin-right: 2.5rem;
+	  width: 100%;
+	  max-width: 250px; 
+	  text-decoration: none; 
+	  opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	}
+	a.thumb:nth-child(4) {
+		margin-right: 0;
+	}
+  }
+  .post-date {
+	font-size: 0.75rem;
+	line-height: 0.75rem;
+	color: grey;
+	
+  } 
+.post-title {
+	margin-bottom: 0.4rem !important;
+	margin-top: 0.6rem !important;
+	font-size: 1.3rem;
+	line-height: 1.7rem;
+	font-weight: 500;
+	color : black;
+	text-align: left;
+  }
+// adjust the hover interaction so that it underlines text and fades image together.
+  .post-title:hover {
+	text-decoration: underline;
+	color: #000;
+}
+
+// make sure dimensions are 3x2
+  .post-image {
+	margin-bottom: 10px;
+  
+  }
+  .post-image img {
+	max-width: 100%;
+  }
+  
+  .post-summary {
+	font-size: 0.9rem;
+	margin-bottom: 5px;
+	color: grey;
+	line-height: 1.3rem;
+	
+  }
+  
+  a:hover.thumb img {
+	opacity: 0.7
+  }
+  
+  .imglink {
+	border-bottom: 0px !important;
+  }
+  
+
+///not sure if needed
+  .posts ul,header ul {
 	list-style:none;
 }
 
@@ -162,55 +401,23 @@ strong, b {
 	font-variant-numeric: tabular-nums;
 }
 
-main {
-	display:flex;
-	flex-wrap:wrap;
-	max-width:60rem;
-	margin:2rem auto;
-	padding:1rem;
+
+///page - e.g. about page
+/// 
+.page {
+	max-width: 55rem;
+	margin: auto;
+	text-align: center
 }
 
-
-@media screen and (max-width: 45rem ) {
-header li {
-    display: inline;
-	margin-right: 1rem;
-}
-.logo {
-	padding-bottom: 1rem;
-}
-header ul {
-	padding-bottom: 2rem;	
-}
-nav {ul {
-    	list-style: none;
-        padding: 0;
-        text-align: right;
-
-        li {
-            display: inline;
-        }
-    }
-    a {
-        margin: 0.5rem;
-    }
+.page p {
+	margin: .5rem 0;
 }
 
-.photos ul {
-	margin-top: 0.5rem;
+.page h1, .page h3, .page h4 {
+	margin: 1rem 0;
 }
 
+.page h2 {margin: 0 0 2.5rem;
 }
 
-section {
-	flex-basis:0;
-	flex-grow:999;
-	min-width:70%;
-	display:flex;
-	flex-direction:column;
-	
-}
-
-figcaption {
-    font-size: smaller;
-}
