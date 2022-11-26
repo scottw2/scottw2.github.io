@@ -71,7 +71,7 @@ pre {
 
 
 .post-2 {
-	max-width: 55rem;
+	max-width: 50rem;
 	margin: auto
 }
 
@@ -106,6 +106,7 @@ pre {
 img {
 	max-width:100%;
 }
+
 
 hr {
 	border: 0;
@@ -181,7 +182,7 @@ h4,h5 {
     text-rendering: optimizeLegibility;
 	line-height: 1;
 	margin: 1rem 0;
-	font-weight: 500;
+	font-weight: 700;
 	text-align: left;
 }
 
@@ -218,19 +219,45 @@ main {
 
 //images
 
-.image-small {
+.img-small {
 	max-width: 75%;
 	display: block;
     margin: 0 auto;
 }
 
-// need to make this adjust so that is shows properly on mobile I suspect
-.image-large {
-	max-width: 125%;
+//img-large only large on displays wider than 1500px (laptops) so it displays correctly
+//could do similar for say 125% but with a smaller min-width
+.img-large {
+	max-width: 100%;
 	display: block;
     margin: 0 auto;
 }
 
+@media screen and (min-width: 1500px) {
+
+	.img-large {
+		max-width: 175%;
+		margin-left: 50%;
+		transform: translateX(-50%);
+		
+	}	
+}
+
+.img-somewhat-large {
+	max-width: 100%;
+	display: block;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 1200px) {
+
+	.img-somewhat-large {
+		max-width: 125%;
+		margin-left: 50%;
+		transform: translateX(-50%);
+		
+	}	
+}
 
 
 // not sure if this is needed anymore?
@@ -402,10 +429,10 @@ figcaption {
 }
 
 
-///page - e.g. about page
+///page - e.g. about  55 currently
 /// 
 .page {
-	max-width: 55rem;
+	max-width: 50rem;
 	margin: auto;
 	text-align: center
 }
