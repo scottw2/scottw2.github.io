@@ -156,35 +156,42 @@ blockquote {
 }
 
 h1,h2 {
-	font-family: 'Merriweather', serif;
+	font-family: 'Fraunces', serif;
 	-webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 	line-height: 1;
 	margin: 1rem 0;
 	font-weight: 700;
 	text-align: center;
+	font-size: 2rem;
 }
 
 h3 {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Fraunces', serif;
 	-webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 	line-height: 1;
 	margin: 1rem 0;
-	font-weight: 700;
-	text-align: left;
-	font-size: 1.25rem;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: underline;
+	font-size: 1.55rem;
+	padding-top: 0.75rem;
+	
 }
 
 h4,h5 {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Fraunces', serif;
 	-webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 	line-height: 1;
 	margin: 1rem 0;
-	font-weight: 700;
-	text-align: left;
+	font-weight: 500;
+	text-align: center;
+
 }
+
+h4 {font-size: 1.36rem}
 
 
 section h1:first-child {
@@ -284,15 +291,21 @@ figcaption {
 // home page/projects page 
 
 .home-title {
-	margin-bottom: 0rem;
+	margin-bottom: 2.5rem;
 	margin-top: 0rem;
 	text-align: center;
 }
 
 .home-summary {
+	margin:1rem auto;
 	margin-bottom: 2.5rem;
 	margin-top: 0rem;
 	text-align: center;
+	max-width: 50rem;
+	display:flex;
+	flex-wrap:wrap;
+	
+	
 }
 
 

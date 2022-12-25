@@ -3,4 +3,4 @@ layout: page
 title: About
 ---
 
-A website about data stuff and charts.
+A website about data, charts and stuff.
