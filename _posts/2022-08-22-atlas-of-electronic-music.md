@@ -21,13 +21,16 @@ The downside of this method was that it often pulled through artists that were n
 
 ### Visualisation
 
-The data was visualised using Gephi. I used a type of graph called a force-directed-graph, employing the ForceAtlas 2 algorithm. To add a splash of colour to the visualisation I used a community detection algorithm. This works by dividing the network into "modularity classes" - groups that generally have denser connections to nodes within the same modularity class than to nodes within other classes. Each colour in the network represents a different modularity class. I labelled each of the modularity class groups based on their overarching genres. Some groups were easy to define, being comprised of basically one genre (e.g. hardstyle, lofi, psytrance), however others were a bit more nebulous. For instance, the "experimental" group is made up of a variety of different subgenres like ambient, future garage and classic dubstep - however the artists within these subgenres could broadly be defined as experimental. Some artists were also a bit out of place, e.g. EDM artists in the dubstep group. These were mostly "fringe" artists that join multiple groups together by the other artists they are related to, so it's not really a big issue, but it is true that the sub-genre labels are not precisely correct, and are instead more-so generalisations. Part of the reason for this may be due to the "playlist culture" of spotify which has possibly made a clear genre classification of music somewhat redundant - as it instead allows people to group music in ways beyond a standard genre taxonomy. 
-
-The network went through a number of different versions (see below) but I eventually ended up with a pretty good dataset and network (I think) - including just over 5000 artists.
+The data was visualised using Gephi. I used a type of graph called a force-directed-graph, employing the ForceAtlas 2 algorithm. To add a splash of colour to the visualisation I used a community detection algorithm. This works by dividing the network into "modularity classes" - groups that generally have denser connections to nodes within the same modularity class than to nodes within other classes. Each colour in the network represents a different modularity class. 
 
 ![](/assets/images/atlas-of-electronic-music/networkiterationsv2.png)
 
-See the end product below:
+I labelled each of the modularity class groups based on their overarching genres. Some groups were easy to define, being comprised of basically one genre (e.g. hardstyle, lofi, psytrance), however others were a bit more nebulous. For instance, the "experimental" group is made up of a variety of different subgenres like ambient, future garage and classic dubstep - however the artists within these subgenres could broadly be defined as experimental. Some artists were also a bit out of place, e.g. EDM artists in the dubstep group. These were mostly "fringe" artists that join multiple groups together by the other artists they are related to, so it's not really a big issue, but it is true that the sub-genre labels are not precisely correct, and are instead more-so generalisations. Part of the reason for this may be due to the "playlist culture" of spotify which has possibly made a clear genre classification of music somewhat redundant - as it instead allows people to group music in ways beyond a standard genre taxonomy. 
+
+The network went through a number of different versions (see above) but I eventually ended up with a pretty good dataset and network (I think) - including just over 5000 artists.
+
+See the end product below:  
+&nbsp;  
 
 ![](/assets/images/atlas-of-electronic-music/electronicmusicv48.png){:class="img-large"}
 
