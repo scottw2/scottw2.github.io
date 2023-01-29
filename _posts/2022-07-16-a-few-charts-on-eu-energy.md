@@ -65,12 +65,12 @@ To look in more detail at the rise of renewable energy in the EU, Figure3 shows 
 
 In every EU country, the percentage of energy sourced from renewables has increased, but some states have performed much better than others. Sweden currently leads the way, with 52% of their energy supply from renewables, followed by Denmark and Finland. The largest improvement was in Denmark - 6% in 1990 to 40% in 2020. 
 
-Interestingly, quite a number of EU countries started with less than 3% of their energy coming from renewables sources, but now generally source more than 10% of their energy from renewables (e.g. Poland, Lithuania and Germany).
+Interestingly, quite a number of EU countries started with less than 3% of their energy coming from renewable sources, but now generally source more than 10% of their energy from renewables (e.g. Poland, Lithuania and Germany).
 
 ![](/assets/images/a-few-charts-on-eu-energy/ren-line.png)
 *Figure 3: Renewables in the Mix*
 
-One final intriguing graphs is Figure 4, which shows the breakdown of renewables energy by source in each country.
+One final intriguing graph is Figure 4, which shows the breakdown of renewable energy by source in each country.
 
 ![](/assets/images/a-few-charts-on-eu-energy/ren-tree.png)
 *Figure 4: Renewable Energy Mix in the EU*

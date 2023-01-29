@@ -225,6 +225,11 @@ main {
 
 //images
 
+.img + em {
+	font-style: italic;
+	margin-top: 0.5rem;
+}
+
 .img-small {
 	max-width: 75%;
 	display: block;
@@ -239,6 +244,11 @@ main {
     margin: 0 auto;
 }
 
+.img-large + em {
+	font-style: italic;
+	margin-top: 0.5rem;
+}
+
 @media screen and (min-width: 1500px) {
 
 	.img-large {
@@ -247,22 +257,80 @@ main {
 		transform: translateX(-50%);
 		
 	}	
+
+	.img-large + em {
+		display: block;
+		text-align: center;
+		font-style: italic;
+		margin-top: 0.5rem;
+	}
 }
 
 .img-somewhat-large {
 	max-width: 100%;
 	display: block;
     margin: 0 auto;
+	image-rendering: -webkit-optimize-contrast;
 }
+
+.img-somewhat-large + em {
+	font-style: italic;
+	margin-top: 0.5rem;
+}
+
 
 @media screen and (min-width: 1200px) {
 
 	.img-somewhat-large {
 		max-width: 125%;
 		margin-left: 50%;
+		image-rendering: -webkit-optimize-contrast;
 		transform: translateX(-50%);
 		
 	}	
+
+	.img-somewhat-large + em {
+		display: block;
+		text-align: center;
+		font-style: italic;
+		margin-top: 0.5rem;
+		
+	}
+}
+
+.img-somewhat-large-r {
+	max-width: 100%;
+	display: block;
+    margin: 0 auto;
+	image-rendering: -webkit-optimize-contrast;
+	border-radius: 25px;
+}
+
+.img-somewhat-large-r + em {
+	font-style: italic;
+	margin-top: 0.5rem;
+	
+}
+
+@media screen and (min-width: 1200px) {
+
+	.img-somewhat-large-r {
+		max-width: 125%;
+		margin-left: 50%;
+		image-rendering: -webkit-optimize-contrast;
+		transform: translateX(-50%);
+		border-radius: 25px;
+		
+	}	
+
+	.img-somewhat-large-r + em {
+		display: block;
+		text-align: center;
+		font-style: italic;
+		margin-top: 0.5rem;
+		
+		
+	}
 }
 
 
@@ -460,3 +528,13 @@ figcaption {
 .page h2 {margin: 0 0 2.5rem;
 }
 
+::selection {
+	background: #dddad3; /* WebKit/Blink Browsers */
+  }
+::-moz-selection {
+	background: #dddad3; /* Gecko Browsers */
+  }
+
+p a:hover {
+	background: #dddad3;
+  }
