@@ -303,7 +303,7 @@ main {
 	display: block;
     margin: 0 auto;
 	image-rendering: -webkit-optimize-contrast;
-	border-radius: 25px;
+	border-radius: 1.5vw;
 }
 
 .img-somewhat-large-r + em {
@@ -319,7 +319,7 @@ main {
 		margin-left: 50%;
 		image-rendering: -webkit-optimize-contrast;
 		transform: translateX(-50%);
-		border-radius: 25px;
+		border-radius: 1.5vw;
 		
 	}	
 
