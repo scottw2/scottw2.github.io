@@ -9,11 +9,13 @@ published: true
 image: /assets/images/atlas-of-electronic-music/post_image.png
 ---
 
-The idea for this project stemmed from wanting to do something with the spotify API and to make a network visualisation having seen some really nice ones recently ([see here](https://www.barabasilab.com/art/works) for an example). Making a network graph of spotify data was not particularly innovative, as there are a number of examples online already (see [here](https://medium.com/analytics-vidhya/what-kind-of-music-do-you-listen-to-exploring-the-network-of-spotifys-genres-56d188201a07), [here](https://erdavis.com/2019/03/01/mapping-the-metalverse/) and [also here](https://wearebumper.com/blog/2022/08/22/spotify-episode-recommendation-algorithm/)), but I had not seen this idea applied to electronic music so I thought it would be a good excuse to make a few network graphs. 
+The idea for this project stemmed from wanting to do something with the spotify API and to make a network visualisation having seen some really nice ones recently ([see here](https://www.barabasilab.com/art/works) for an example). The main inspiration for this idea came from [this similar visualisation, focusing on the metal genre](https://erdavis.com/2019/03/01/mapping-the-metalverse/). A couple of other posts that helped inform my methodology can be found [here](https://medium.com/analytics-vidhya/what-kind-of-music-do-you-listen-to-exploring-the-network-of-spotifys-genres-56d188201a07) and [also here](https://wearebumper.com/blog/2022/08/22/spotify-episode-recommendation-algorithm/). I had not seen this idea applied to electronic music however, so I thought it would be a good excuse to make a few network graphs. 
 
 ![](/assets/images/atlas-of-electronic-music/atlasphotoshop2.png)
 
 ### Data
+
+The methodology for gathering and cleaning the data was based on the posts linked above, particularly the second one.
 
 The data gathering process was rather iterative and required quite a bit of manual effort. I started by creating a list of various electronic artists from different subgenres and then finding each of their related artists using the spotipy library in python. This gave me a longer list of artists and I then searched for the related artists of artists on this list and so on for a few more iterations. 
 

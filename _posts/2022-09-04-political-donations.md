@@ -25,6 +25,8 @@ The data visualised here is from Quarter 1 2001 to Quarter 1 2022 (by the date t
 
 I found that there were also some duplicate entries in the dataset. This is because around elections some donations are reported twice (due to the Electoral Commission's methodology), so these, along with returned or forfeited donations have been filtered out. Additionally, donations classed as "Public Funds" were removed, which filters out public funding for party administration costs, known as "short money". 
 
+The donation values have also been adjusted for inflation using the Consumer Price Index (CPI) at an annual basis, to represent donations in constant £s.
+
 ### Donation Flows
 
 The original idea for this project was to just create a steam graph showing the flow of donations over time - which is shown in Figure 1. However, I got carried away and created a couple of other visualisations.
@@ -36,7 +38,7 @@ Another point of interest is how more recent general elections have set consecut
 There are also some other party-specific observations that are labelled on the chart itself.
 
 &nbsp; 
-![](/assets/images/political-donations/bumpchart29v2psd2.png){:class="img-somewhat-large-r"}
+![](/assets/images/political-donations/bumpchart.png){:class="img-somewhat-large-r"}
 *Figure 1: Political Donations: Donations to each party over time*
 
 ### Where Donations Come From
@@ -49,7 +51,7 @@ In fact, the Tories, Lib Dems and "Other" parties all have a similar breakdown o
 
 &nbsp; 
 
-![](/assets/images/political-donations/alluvialchart9.png){:class="img-somewhat-large-r"}
+![](/assets/images/political-donations/alluvial.png){:class="img-somewhat-large-r"}
 *Figure 2: Donations to each party by source*
 
 ### Top Donors
@@ -64,30 +66,30 @@ See the top donors by party in Figure 3 below:
 
 &nbsp;
 
-![](/assets/images/political-donations/circlepackingDonors11psd.png){:class="img-somewhat-large-r"}
+![](/assets/images/political-donations/circles.png){:class="img-somewhat-large-r"}
 *Figure 3: Top donors to each party*
 
 It is immediately obvious that **Labour** has been primarily funded by a small number of *very generous* trade unions (Unite, GMB, Unison, USDAW, CWU) plus a few individual donors (Lord David Sainsbury, Lakshmi Mittal - unlabelled). 
 
 Labour ranks second in terms of the total donations received from large donors, trailing the **Conservative Party**. Moreover, while the Conservatives' large donor-base is less concentrated than Labour's, there are still a number of people & companies with deep pockets (and a lot of influence in the party), for example, companies like JCB & IPGL and individuals such as Michael Farmer, David Rowland and Mick Davis. 
 
-It also appears that a lot of the companies that have donated to political parties tend to effectively be donations made by individuals that own these companies. This is especially the case for the Tories, e.g. the Bamford family has donated £4.3mn personally and £11.3mn through their group of JCB companies (yes that JCB), while IPGL (£6.3mn donated) is the private holding company of Lord Michael Spencer, who has only donated £300k personally. Another example is Bearwood Corporate Services (£5.3mn donated), which is owned by Lord Michael Ashcroft (£900k donated) and was [investigated by the Electoral Commission between 2009 and 2010 for not being a "proper" company and acting a proxy for Ashcroft to make donations](https://www.theguardian.com/politics/2010/mar/04/electoral-commission-lord-ashcroft-donations).
+It also appears that a lot of the companies that have donated to political parties tend to effectively be donations made by individuals that own these companies. This is especially the case for the Tories, e.g. the Bamford family has donated £5.5mn personally and £13.6mn through their group of JCB companies (yes that JCB), while IPGL (£8.2mn donated) is the private holding company of Lord Michael Spencer, who has only donated £430k personally. Another example is Bearwood Corporate Services (£7.7mn donated), which is owned by Lord Michael Ashcroft (£1mn donated) and was [investigated by the Electoral Commission between 2009 and 2010 for not being a "proper" company and acting a proxy for Ashcroft to make donations](https://www.theguardian.com/politics/2010/mar/04/electoral-commission-lord-ashcroft-donations).
 
-Moving on, the **Liberal Democrats** come in third in terms of total donations from big spenders and have two stand-out donors, Lord David Sainsbury (again) and the Joseph Rowntree Reform Trust. They also received £2.5mn in donations in 2005 from 5th Avenue partners, a firm setup by convicted fraudster Michael Brown, that caused [quite a scandal](https://www.theguardian.com/politics/2014/jul/17/inquiry-fraudster-michael-brown-donation-lib-dems).
+Moving on, the **Liberal Democrats** come in third in terms of total donations from big spenders and have two stand-out donors, Lord David Sainsbury (again) and the Joseph Rowntree Reform Trust. They also received £3.7mn in donations in 2005 from 5th Avenue partners, a firm setup by convicted fraudster Michael Brown, that caused [quite a scandal](https://www.theguardian.com/politics/2014/jul/17/inquiry-fraudster-michael-brown-donation-lib-dems).
 
-The **Reform Party** (previously the **Brexit Party**) has been propped up by one Christopher Harborne, who has donated a total of £10.2mn.  Leave Means Leave, a pro-Brexit pressure group ran by the same people in charge of the Brexit Party also donated £1mn, alongside Jeremy Hosking, who gave £1.6mn.
+The **Reform Party** (previously the **Brexit Party**) has been propped up by one Christopher Harborne, who has donated a total of £11.4mn.  Leave Means Leave, a pro-Brexit pressure group ran by the same people in charge of the Brexit Party also donated £1.1mn, alongside Jeremy Hosking, who gave £1.8mn.
 
-The 5 largest donors to **UKIP** are all companies. Similar to the Conservatives these are however realistically donations from individuals through their companies. Highstone Group, a company controlled by Paul Sykes, donated the most with £2.2mn. Sykes has also donated £600k through another company, the Paul Sykes Group. Northern & Shell Group, publisher of the Daily Express and Star also donated £1.3mn to the party, on behalf of owner Richard Desmond. The third largest donor is well known Brexiteer Aaron Banks, who gave UKIP £1.2mn through his firm Rock Services. 
+The 5 largest donors to **UKIP** are all companies. Similar to the Conservatives these are however realistically donations from individuals through their companies. Highstone Group, a company controlled by Paul Sykes, donated the most with £3.0mn. Sykes has also donated £900k through another company, the Paul Sykes Group. Northern & Shell Group, publisher of the Daily Express and Star also donated £1.6mn to the party, on behalf of owner Richard Desmond. The third largest donor is well known Brexiteer Aaron Banks, who gave UKIP £1.4mn through his firm Rock Services. 
 
-The **SNP** received £2.6mn from businessman Brian Souter, £2.3mn each from lottery winners Christine and Colin Weir as well as £1.1mn from late poet Edwin Morgan.
+The **SNP** received £3.3mn from businessman Brian Souter, £2.8mn each from lottery winners Christine and Colin Weir as well as £1.4mn from late poet Edwin Morgan.
 
-Out of the parties in the "Other" category, there are also a few donors worth mentioning. Firstly, the **Co-operative Party** received £11.7mn from the Co-operative group. Secondly, Jeremy Hosking effectively funded the 2020 launch of new right wing **Reclaim Party** with £2.5mn in donations. Finally, **Sinn Féin** also accepted £2.9mn in donations from a Mr William Hampton.
+Out of the parties in the "Other" category, there are also a few donors worth mentioning. Firstly, the **Co-operative Party** received £15.0mn from the Co-operative group. Secondly, Jeremy Hosking effectively funded the 2020 launch of new right wing **Reclaim Party** with £2.7mn in donations. Finally, **Sinn Féin** also accepted £3.2mn in donations from a Mr William Hampton.
 
- Additionally, across both of the two main parties there are quite a few generous donors with knighthoods, lordships and other honours which I think is worth mentioning. Looking at the top 50 largest individual donors to the Conservative party, 21 have received knighthoods and/or been given lordships. Similarly, for the top 50 Labour party donors, 19 have been made knights of the realm or lords.
+ Additionally, across both of the two main parties there are quite a few generous donors with knighthoods, lordships and other honours which I think is worth mentioning. Looking at the top 50 largest individual donors to the Conservative party, 20 have received knighthoods and/or been given lordships. Similarly, for the top 50 Labour party donors, 18 have been made knights of the realm or lords.
 
 ### Final Thoughts
 
-In conclusion, this project aimed to answer several questions about political donations in the UK, such as which parties have received the most donations over time and who have been the main donors propping up each party. The results show that donations have tended to peak around elections and that more recent general elections have set consecutive quarterly donation records. Additionally, the difference in funding sources between Parties is easy to see, with 68% of Labour's donations coming from trade unions and 64% of the Tories' donations coming from individuals for instance. While the data quality of donor names was very poor, after cleaning the data it was possible to see the who the main funders of each party were. 
+This project shows that donations have tended to peak around elections and that more recent general elections have set consecutive quarterly donation records. Additionally, the difference in funding sources between parties is easy to see, with 68% of Labour's donations coming from trade unions and 64% of the Tories' donations coming from individuals for instance. Moreover, while the data quality of donor names was very poor, after cleaning the data it was possible to see the who the main funders of each party were. 
 
 Overall, this project provides a glimpse into the flow of political donations in the UK, and may raise questions about the role of money in British politics.
 

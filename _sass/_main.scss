@@ -22,6 +22,7 @@ body {
 	text-decoration: none;
 	max-width: 100%;
     overflow-x: hidden;
+	word-wrap: break-word;
 }
 
 /// navigation 
@@ -174,7 +175,7 @@ h3 {
 	margin: 1rem 0;
 	font-weight: 500;
 	text-align: center;
-	font-size: 1.55rem;
+	font-size: 1.6rem;
 	padding-top: 0.75rem;
 	
 }
@@ -266,6 +267,34 @@ main {
 	}
 }
 
+.img-pretty-large {
+	max-width: 100%;
+	display: block;
+    margin: 0 auto;
+}
+
+.img-pretty-large + em {
+	font-style: italic;
+	margin-top: 0.5rem;
+}
+
+@media screen and (min-width: 1500px) {
+
+	.img-pretty-large {
+		max-width: 150%;
+		margin-left: 50%;
+		transform: translateX(-50%);
+		
+	}	
+
+	.img-pretty-large + em {
+		display: block;
+		text-align: center;
+		font-style: italic;
+		margin-top: 0.5rem;
+	}
+}
+
 .img-somewhat-large {
 	max-width: 100%;
 	display: block;
@@ -332,6 +361,21 @@ main {
 		
 	}
 }
+
+///table
+// need to make this work on mobile (make font size smaller in table
+// maybe need to edit the actual html file lol
+// do I also need to add font file somewhere on website??
+
+.gt-table {
+	max-width: 100%;
+	height:620px;
+	display: block;
+    margin: 0 auto;
+	border:none;
+	overflow-x:hidden !important;
+}
+
 
 
 // not sure if this is needed anymore?
@@ -538,3 +582,5 @@ figcaption {
 p a:hover {
 	background: #dddad3;
   }
+
+
