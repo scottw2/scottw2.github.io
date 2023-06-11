@@ -58,7 +58,7 @@ One relationship, which I mentioned earlier and would like to expand on, is that
 
 From running this algorithm, the below visualisation (Figure 3) was produced. As we can see, each of the large parties have their own clusters, but there are some MPs from both the Conservative and Labour who have floated off a bit into the centre of the graph, as they have quite a few connections to MPs from other parties relative to their own parties. Notably, Eleanor Laign, Nadhim Zahawi, Matt Warman, Andrew Rosindell and James Cleverly for the Tories and Darren Jones, Wes Streeting, Luke Pollard, Chris Bryant and Keir Starmer for Labour. The Speaker, Lindsay Hoyle is by no surprise right in the middle of the graph. Generally the minor parties (including the SNP) are quite clustered together, apart from the DUP, but I will elaborate on this further in the next section.
 
-![](/assets/images/uk-mp-twitter-network-analysis/Overallnetwork5.png){:class="img-large"}
+![](/assets/images/uk-mp-twitter-network-analysis/Overallnetwork6-60.png){:class="img-large"}
 *Figure 3: UK MP Twitter network*
 
 
@@ -114,7 +114,7 @@ The cyan community appears to be characterised by generally being comprised of L
 
 Those within the yellow community are probably MPs that are generally somewhere in the middle of Labour's political spectrum, as demonstrated by most of the yellow community being in the centre of the network. This community can broadly be categorised by having a more evenly distributed number of links to red and blue community members compared to the balance of links the MPs in those two communities have with MPs in their own community compared to colleagues in the other community.
 
-![](/assets/images/uk-mp-twitter-network-analysis/Labournetwork6.png){:class="img-large"}
+![](/assets/images/uk-mp-twitter-network-analysis/Labournetwork7-60.png){:class="img-large"}
 *Figure 5: Labour network of mutual followers - coloured by modularity class*
 
 <strong>Moving onto the Conservative network</strong>, there are again three main modularity classes as shown in Figure 6 (although a few individual MPs actually had their own additional classes), (dark) blue, cyan and orange. The interactive version of Figure 6 is here: https://scottw2.github.io/UKMPsTwitter/ToryNetwork/. The division of this network is a bit more nuanced than that of Labour, as I believe what the groups reveal is only somewhat based on (left-right) politics and partly based on seniority or "who you know". 
@@ -129,7 +129,7 @@ Nevertheless, there still appears to be a division of seniority between the oran
 
 Overall, I suspect the divisions of the network may be a product of all three reasons and maybe some others I haven't thought of. This possibly reveals that current Tory MPs are a bit more cliquey and hierarchical compared to the Labour party (at-least on Twitter). Although this difference could also be due to the influx of new Tory MPs and decrease in Labour MPs in 2019. In any case, the current Labour networks appears to be more politically divided between the left and right compared to the Conservative network.
 
-![](/assets/images/uk-mp-twitter-network-analysis/Torynetwork4.png){:class="img-large"}
+![](/assets/images/uk-mp-twitter-network-analysis/Torynetwork5-60.png){:class="img-large"}
 *Figure 6: Conservative network of mutual followers - coloured by modularity class*
 
 
