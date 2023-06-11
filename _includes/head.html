@@ -44,11 +44,26 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Mono:regular,medium,semibold,bold,700">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:regular,bold">
 
-  <script type="text/javascript">
-    function resizeIframe(iframe) {
-      iframe.height = iframe.contentWindow.document.body.scrollHeight + "px";
-    }
-  </script>  
+  <script>
+    window.addEventListener('DOMContentLoaded', resizeIframes);
+    window.addEventListener('resize', resizeIframes);
 
+    function resizeIframes() {
+      var iframes = document.getElementsByClassName('Iframe-to-resize');
+
+      for (var i = 0; i < iframes.length; i++) {
+        var iframe = iframes[i];
+        var iframeBody = iframe.contentDocument.body;
+        var iframeHeight = Math.max(
+          iframeBody.offsetHeight,
+          iframeBody.scrollHeight
+        );
+
+        iframe.style.height = iframeHeight + 'px';
+      }
+    }
+
+    window.addEventListener('load', resizeIframes);
+  </script>
 
 </head>

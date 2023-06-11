@@ -27,10 +27,10 @@ The data was gathered in February 2021 from Twitter's API, using the Tweepy pack
 In Table 1, I have arranged a number of summary statistics for each party. I have used median and Interquartile range (IQR) stats as there are a lot of outliers and the data is not normally distributed - you can see the distribution of the number of MP Followers for all parliamentarians in Figure 1. As previous research has shown, generally MPs' following-followers relationships tend to mostly be to their own parties. This leads to the average MP followers statistic mostly reflecting the number of MPs on twitter for each p arty, although this relationship doesn't really hold for some of the very small parties (see the below table). 
 
 <div 
-    ><iframe class="gt-table-box" 
+    ><iframe class="Iframe-to-resize"
         src="/assets/widgets/uk-mp-twitter-network-analysis/table1v4.html"
-        frameborder="0" scrolling="no" onload="resizeIframe(this)" width="100%" 
-    ></iframe>   
+        frameborder="0" width="100%" scrolling="no"
+    ></iframe>    
 </div>
 *Table 1: Summary of parties' twitter followings*
 
@@ -42,9 +42,9 @@ However, while the Conservatives have on average more MP followers (i.e. followe
 Furthermore, ranking MPs by their number of MP followers can show some interesting results (see Table 2 below). Firstly, the majority of the MPs most followed by other MPs are Tories, with senior leadership and ex-leadership figures taking the top spots of the ranking. The Speaker, Lindsay Hoyle, however, comes in 3rd, reflecting his apolitical role in parliament. The only other non-Tory MPs in the top 20 are two Labour MPs - Keir Starmer and Ed Miliband.
 
 <div 
-    ><iframe class="gt-table-box" 
+    ><iframe class="Iframe-to-resize"
         src="/assets/widgets/uk-mp-twitter-network-analysis/table2v2.html"
-        frameborder="0" scrolling="no" onload="resizeIframe(this)" width="100%" 
+        frameborder="0" scrolling="no"  width="100%"
     ></iframe>   
 </div>
 *Table 2: MPs followed by the most other MPs*
@@ -65,9 +65,9 @@ From running this algorithm, the below visualisation (Figure 3) was produced. As
 While Figure 3 does visually show how parties are interconnected, I also thought it would be nice to quantify how insular parties and MPs are (e.g. what percentage of MPs followed by each specific MP belong to the same party as that specific MP?). You can see in Table 3, that Conservative Party MPs were the most insular on average, followed by Labour and then the SNP and other minor parties. There were also 38 Conservative MPs who only followed other Tories, while there were only 5 Labour MPs who purely followed other Labour MPs. There were no MPs from other parties who only followed MPs from their own party. Additionally, in Figure 4 you can see that while Tory MPs in total had nearly twice the number of following relations to their own party compared to Labour's own party relations, the Tories had fewer following relations to every other party (except the DUP) than Labour. One possible way to explain the difference in insularity across parties is that it is related to party size; less dominant and smaller parties require more collaboration with other parties to make an impact. The Conservative party, which has been the largest party and continuously in government since 2010, relies less on cross-party relationships compared to the other parties, so is therefore the most insular. You could also consider this from the opposite angle, looking at who each specific MP was followed by or you could look at mutual following-follower relationships.
 
 <div 
-    ><iframe class="gt-table-box" 
+    ><iframe class="Iframe-to-resize"
         src="/assets/widgets/uk-mp-twitter-network-analysis/table3v2.html"
-        frameborder="0" scrolling="no" onload="resizeIframe(this)" width="100%"
+        frameborder="0" scrolling="no"  width="100%"
     ></iframe>   
 </div>
 *Table 3: Parties by insularity of following relations*

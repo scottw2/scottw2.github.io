@@ -128,8 +128,8 @@ table {
   }
   
   .gt_heading {
-    font-family:  'Redaction', serif;
-    src: url("../fonts/Redaction-Regular.otf");
+    font-family: 'redaction', serif;
+    src: url("../fonts/Redaction-Regular.otf") format('otf');
     font-size: 23px;
     background-color: #FFFFFF;
     text-align: left;
@@ -144,8 +144,8 @@ table {
 
   @media screen and (max-width: 703px) {
     .gt_heading {
-        font-family: 'Redaction', serif;
-        src: url("../fonts/Redaction-Regular.otf");
+        font-family: 'redaction', serif;
+        src: url("../fonts/Redaction-Regular.otf") format('otf');
         font-size: 20px;
         background-color: #FFFFFF;
         text-align: left;
@@ -161,8 +161,8 @@ table {
   
   @media screen and (max-width: 400px) {
     .gt_heading {
-        font-family: 'Redaction', serif;
-        src: url("../fonts/Redaction-Regular.otf");
+        font-family: 'redaction', serif;
+        src: url("../fonts/Redaction-Regular.otf") format('otf');
         font-size: 16px;
         background-color: #FFFFFF;
         text-align: left;
