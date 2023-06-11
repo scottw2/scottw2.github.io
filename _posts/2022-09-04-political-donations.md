@@ -9,13 +9,14 @@ published: true
 image: /assets/images/political-donations/post_image.png
 ---
 
-Which political parties have brought in the most donations over the years? How have donation flows changed over time? Who have been the main donors propping up each party? These are a some of the questions that this data visualisation project aims to answer.
+In the UK, there exists a deep-rooted connection between political parties and wealthy individuals, companies and other organisations like trade unions, where interests and finance intertwine. A primary channel through which this relationship materialises is the mechanism of political *donations*, made by these groups to political parties. This data visualisation project delves into this world of political donations in the UK and aims to answer a few key questions: Which political parties have brought in the most donations over the years? How have donation flows changed over time? Who have been the main donors propping up each party? 
+
 
 ![](/assets/images/political-donations/politicsphotoshop2.png)
 
 ### Data
 
-The project uses data sourced from the Electoral Commission's somewhat shoddy database of donations to British political parties, representatives and other political groups. 
+Following the Political Parties, Elections and Referendums Act 2000, the Electoral Commission was established in 2001 to regulate political finance and oversee elections in the UK. So, since 2001, all donations over certain thresholds (outlined below) have had to be reported to the Commission. This data is collated in the Commission's somewhat shoddy database of donations to British political parties, representatives and other political groups, which is the main data source used in this project. 
 
 Focusing just on political parties, the database runs from 2001 and includes every donation (and loan) over £7,500 made to central political parties, along with donations over £1,500 made to "party sections" that are not managed by the central party. There are also some additional donations included under £1,500 as well.
 
