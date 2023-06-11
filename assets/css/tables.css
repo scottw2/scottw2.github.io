@@ -128,7 +128,7 @@ table {
   }
   
   .gt_heading {
-    font-family: Redaction;
+    font-family:  'Redaction', serif;
     src: url("../fonts/Redaction-Regular.otf");
     font-size: 23px;
     background-color: #FFFFFF;
@@ -144,7 +144,7 @@ table {
 
   @media screen and (max-width: 703px) {
     .gt_heading {
-        font-family: Redaction;
+        font-family: 'Redaction', serif;
         src: url("../fonts/Redaction-Regular.otf");
         font-size: 20px;
         background-color: #FFFFFF;
@@ -161,7 +161,7 @@ table {
   
   @media screen and (max-width: 400px) {
     .gt_heading {
-        font-family: Redaction;
+        font-family: 'Redaction', serif;
         src: url("../fonts/Redaction-Regular.otf");
         font-size: 16px;
         background-color: #FFFFFF;
@@ -185,6 +185,7 @@ table {
   }
   
   .gt_col_headings {
+    font-family: 'Inter', sans-serif;
     border-top-style: solid;
     border-top-width: 2px;
     border-top-color: #D3D3D3;
@@ -200,6 +201,7 @@ table {
   }
   
   .gt_col_heading {
+    font-family: 'Inter', sans-serif;
     color: #333333;
     background-color: #FFFFFF;
     font-size: 100%;
@@ -305,6 +307,7 @@ table {
   }
   
   .gt_row {
+    font-family: 'Inter', sans-serif;
     padding-top: 2.5px;
     padding-bottom: 2.5px;
     padding-left: 5px;
