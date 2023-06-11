@@ -45,25 +45,35 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:regular,bold">
 
   <script>
-    window.addEventListener('DOMContentLoaded', resizeIframes);
-    window.addEventListener('resize', resizeIframes);
+    function resizeIframe(iframe) {
+      var iframeBody = iframe.contentDocument.body;
+      var iframeHeight = Math.max(
+        iframeBody.offsetHeight,
+        iframeBody.scrollHeight
+      );
 
-    function resizeIframes() {
+      iframe.style.height = iframeHeight + 'px';
+    }
+
+    window.addEventListener('resize', function() {
+      var iframes = document.getElementsByClassName('Iframe-to-resize');
+
+      for (var i = 0; i < iframes.length; i++) {
+        resizeIframe(iframes[i]);
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', function() {
       var iframes = document.getElementsByClassName('Iframe-to-resize');
 
       for (var i = 0; i < iframes.length; i++) {
         var iframe = iframes[i];
-        var iframeBody = iframe.contentDocument.body;
-        var iframeHeight = Math.max(
-          iframeBody.offsetHeight,
-          iframeBody.scrollHeight
-        );
 
-        iframe.style.height = iframeHeight + 'px';
+        iframe.onload = function() {
+          resizeIframe(this);
+        };
       }
-    }
-
-    window.addEventListener('load', resizeIframes);
+    });
   </script>
 
 </head>
