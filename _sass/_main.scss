@@ -6,13 +6,14 @@ html {
 
 *,:after,:before {
 	box-sizing:border-box;
-	background-color:#fffdf7;
+	
 	color:inherit;
 	margin:0;
 	padding:0;
 }
 
 body {
+	background-color:#fffdf7;
 	font-family: 'Roboto', sans-serif;
 	-webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;

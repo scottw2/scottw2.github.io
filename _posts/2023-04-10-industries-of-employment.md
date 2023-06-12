@@ -1,5 +1,5 @@
 ---
-layout: post-2
+layout: post-2-lg
 title: Industries of Employment
 description: Industries of Employment
 summary: An analysis of employment in England & Wales.
