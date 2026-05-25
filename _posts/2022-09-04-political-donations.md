@@ -9,7 +9,7 @@ published: true
 image: /assets/images/political-donations/post_image.png
 ---
 
-In the UK, there exists a deep-rooted connection between political parties and wealthy individuals, companies and other organisations like trade unions, where interests and finance intertwine. A primary channel through which this relationship materialises is the mechanism of political *donations*, made by these groups to political parties. This data visualisation project delves into this world of political donations in the UK and aims to answer a few key questions: Which political parties have brought in the most donations over the years? How have donation flows changed over time? Who have been the main donors propping up each party? 
+In the UK, there are long standing relationships between political parties and wealthy individuals, companies and other organisations like trade unions, where interests and finance intertwine. A primary channel through which this relationship materialises is the mechanism of political *donations*, made by these groups to political parties. This data visualisation project investigates political donations in the UK and aims to answer a few key questions: Which political parties have brought in the most donations over the years? How have donation flows changed over time? Who have been the main donors propping up each party? 
 
 
 ![](/assets/images/political-donations/politicsphotoshop2.png)
